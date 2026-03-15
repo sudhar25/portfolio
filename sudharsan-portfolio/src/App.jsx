@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
-import './App.css'
+import "./App.css"
 
 function App() {
   return (
@@ -23,12 +23,9 @@ function App() {
       {/* MAIN SECTION */}
       <div className="container">
 
-        {/* SIDEBAR IMAGE */}
+        {/* SIDEBAR */}
         <div className="sidebar">
-          <img
-            src="https://via.placeholder.com/200"
-            alt="profile"
-          />
+          <img src="https://via.placeholder.com/200" alt="profile"/>
           <h3>Frontend Developer</h3>
         </div>
 
@@ -36,19 +33,29 @@ function App() {
         <div className="content">
           <h1>Hello 👋</h1>
           <p>
-            I'm Sudharsan, a Computer Engineering student passionate about
-            building modern web applications using React, Python, and cloud technologies.
+            This is where your main portfolio introduction will go.
+            You can later write about your projects, experience,
+            and what technologies you enjoy working with.
           </p>
 
-      
+          <button className="btn">View Projects</button>
         </div>
 
       </div>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        © 2026 Sudharsan Nadar
-      </footer>
+      {/* SKILLS SECTION */}
+      <section className="skills">
+        <h2>Skills</h2>
+
+        <div className="skills-grid">
+          <div className="skill-card">React</div>
+          <div className="skill-card">Python</div>
+          <div className="skill-card">JavaScript</div>
+          <div className="skill-card">SQL</div>
+          <div className="skill-card">MongoDB</div>
+          <div className="skill-card">Cloud</div>
+        </div>
+      </section>
 
     </div>
   )

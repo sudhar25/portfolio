@@ -118,9 +118,34 @@ body{
 
 /* FOOTER */
 
-.footer{
-  text-align:center;
-  padding:30px;
+.skills{
+  padding:80px;
   border-top:1px solid #1f2937;
-  margin-top:80px;
+  text-align:center;
+}
+
+.skills h2{
+  font-size:36px;
+  margin-bottom:40px;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:25px;
+  max-width:900px;
+  margin:auto;
+}
+
+.skill-card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.skill-card:hover{
+  transform:translateY(-6px);
+  background:#38bdf8;
 }
