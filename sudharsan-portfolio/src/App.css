@@ -28,7 +28,7 @@ body{
 }
 
 .logo{
-  font-size:22px;
+  font-size:26px;
   font-weight:bold;
 }
 
@@ -622,4 +622,36 @@ background:#0284c7;
   color:#94a3b8;
   border-top:1px solid #1f2937;
   font-size:14px;
+}
+
+
+
+
+/* RESUME BUTTON */
+
+.resume-btn{
+margin-top:15px;
+padding:10px 20px;
+background:#38bdf8;
+border:none;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.resume-btn:hover{
+background:#0284c7;
+}
+
+.stagger-text{
+opacity:0;
+transform:translateY(30px);
+animation:fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }

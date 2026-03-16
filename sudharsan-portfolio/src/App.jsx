@@ -13,9 +13,11 @@ function App() {
         <div className="logo">Sudharsan Nadar</div>
 
         <ul className="nav-links">
-          <li>Home</li>
+          <li>About Me</li>
           <li>Projects</li>
           <li>Skills</li>
+          <li>Achievements</li>
+          <li>Publications</li>
           <li>Experience</li>
           <li>Contact</li>
         </ul>
@@ -28,7 +30,13 @@ function App() {
         <div className="sidebar">
           <img src="https://via.placeholder.com/200" alt="profile"/>
           <h3>Frontend Developer</h3>
+           <a href="/resume.pdf" target="_blank">
+    <button className="resume-btn">View Resume</button>
+  </a>
         </div>
+        
+
+  
 
         {/* CONTENT */}
         <div className="content">
@@ -46,7 +54,7 @@ function App() {
 
       {/* SKILLS SECTION */}
       <section className="skills">
-        <h2>Skills</h2>
+        <h2 className="stagger-text">Skills</h2>
 
         <div className="skills-grid">
           <div className="skill-card">React</div>
