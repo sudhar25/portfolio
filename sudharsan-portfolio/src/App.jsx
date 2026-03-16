@@ -6,8 +6,9 @@ import "./App.css"
 
 function App() {
   return (
+    
     <div className="page">
-
+<div className="background-grid"></div>
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo">Sudharsan Nadar</div>

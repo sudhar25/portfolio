@@ -625,9 +625,26 @@ background:#0284c7;
 }
 
 
+@media (max-width:1024px){
 
+.container{
+flex-direction:column;
+padding:40px;
+}
 
-/* RESUME BUTTON */
+.projects-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.achievements-grid{
+grid-template-columns:1fr;
+}
+
+.publication-card{
+width:100%;
+}
+
+}
 
 .resume-btn{
 margin-top:15px;
@@ -643,15 +660,36 @@ transition:0.3s;
 background:#0284c7;
 }
 
-.stagger-text{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1s ease forwards;
+@media (max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:10px;
 }
 
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
+.projects-grid{
+grid-template-columns:1fr;
 }
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.achievements-grid{
+grid-template-columns:1fr;
+}
+
+.sidebar{
+width:100%;
+}
+
+.exp-card{
+width:100%;
+flex-direction:column;
+}
+
+.publication-card{
+flex-direction:column;
+}
+
 }
