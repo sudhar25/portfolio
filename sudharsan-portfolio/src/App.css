@@ -1,6 +1,6 @@
 *{
-  margin:0;
-  padding:0;
+  margin:0px;
+  padding:0px;
   box-sizing:border-box;
 }
 
@@ -624,6 +624,23 @@ background:#0284c7;
   font-size:14px;
 }
 
+/* GLOBAL TEXT ANIMATION */
+
+h1, h2, h3, h4, h5, h6, p, span, li, a, button {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textFade 0.8s ease forwards;
+}
+
+@keyframes textFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 
 @media (max-width:1024px){
 
@@ -693,3 +710,4 @@ flex-direction:column;
 }
 
 }
+

@@ -8,7 +8,7 @@ function App() {
   return (
     
     <div className="page">
-<div className="background-grid"></div>
+
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo">Sudharsan Nadar</div>
@@ -365,19 +365,41 @@ top positions at inter-college events.
 
 <h3>Contact Me</h3>
 
-<p><strong>Mobile:</strong> +91 XXXXX XXXXX</p>
-<p><strong>Email:</strong> example@email.com</p>
+{/* Image */}
+<div className="contact-image">
+<img src="/contact-image.png" alt="contact"/>
+</div>
 
+{/* Mobile */}
+<a href="tel:+91XXXXXXXXXX" className="contact-item">
+<i className="fas fa-phone"></i>
+<span>+91 XXXXX XXXXX</span>
+</a>
+
+{/* Email */}
+<a href="mailto:example@email.com" className="contact-item">
+<i className="fas fa-envelope"></i>
+<span>example@email.com</span>
+</a>
+
+{/* Social Icons */}
 <div className="social-icons">
 
-<a href="#"><i className="fab fa-github"></i></a>
-<a href="#"><i className="fab fa-linkedin"></i></a>
-<a href="#"><i className="fab fa-instagram"></i></a>
+<a href="https://github.com/" target="_blank">
+<i className="fab fa-github"></i>
+</a>
+
+<a href="https://linkedin.com/" target="_blank">
+<i className="fab fa-linkedin"></i>
+</a>
+
+<a href="https://instagram.com/" target="_blank">
+<i className="fab fa-instagram"></i>
+</a>
 
 </div>
 
 </div>
-
 
 {/* FEEDBACK CARD */}
 
