@@ -1,11 +1,13 @@
 *{
   margin:0px;
   padding:0px;
-  box-sizing:border-box;
   
 }
 
 body{
+  margin:0;
+  padding:0;
+  background:#0f172a;
   font-family:'Times New Roman', Times, serif, Helvetica, sans-serif;
 }
 
@@ -14,10 +16,17 @@ body{
 .page{
   background:#0f172a;
   min-height:100vh;
-  color:white;
-  width: 1500px;
+  width:100%;
+  max-width: 1500px;
   height: 100%;
+  margin:auto;
+  
 }
+html, body{
+  width:100%;
+  overflow-x:hidden;
+}
+
 
 /* NAVBAR */
 
@@ -54,6 +63,8 @@ body{
 
 .container{
   display:flex;
+  max-width:1400px;
+  margin:auto;
   gap:60px;
   padding:80px;
   align-items:center;
@@ -120,79 +131,7 @@ body{
   transform:scale(1.05);
 }
 
-/* ORBIT WRAPPER */
 
-.orbit-wrapper {
-  position: relative;
-  width: 230px;
-  height: 230px;
-  margin: 0 auto 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* CENTER AVATAR */
-
-.avatar-placeholder {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 3px solid #38bdf8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  font-weight: bold;
-  color: #38bdf8;
-  z-index: 2;
-}
-
-/* ROTATING RING */
-
-.orbit-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  animation: orbitSpin 12s linear infinite;
-}
-
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* ICONS */
-
-.orbit-icon {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #111827;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* POSITIONS */
-
-.orbit-icon:nth-child(1){ top:-10px; left:50% }
-.orbit-icon:nth-child(2){ top:50%; right:-10px }
-.orbit-icon:nth-child(3){ bottom:-10px; left:50% }
-.orbit-icon:nth-child(4){ top:50%; left:-10px }
-.orbit-icon:nth-child(5){ top:20%; left:85% }
-.orbit-icon:nth-child(6){ bottom:20%; left:85% }
-
-/* SECOND RING */
-
-.orbit-ring-2 {
-  position: absolute;
-  inset: -15px;
-  border-radius: 50%;
-  border: 1px dashed rgba(167,139,250,0.3);
-  animation: orbitSpin 22s linear infinite reverse;
-}
 
 /* FOOTER */
 
@@ -701,20 +640,6 @@ background:#0284c7;
   font-size:14px;
 }
 
-/* GLOBAL TEXT ANIMATION */
-
-h1, h2, h3, h4, h5, h6, p, span, li, a, button {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: textFade 0.8s ease forwards;
-}
-
-@keyframes textFade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 
 

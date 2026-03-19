@@ -3,24 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import "./App.css"
-// ORBIT COMPONENT
-function OrbitWrapper() {
-  const icons = ['⚛️', '🐍', '☁️', '🗄️', '🔷', '⚡']
 
-  return (
-    <div className="orbit-wrapper">
-      <div className="orbit-ring">
-        {icons.map((icon, i) => (
-          <div key={i} className="orbit-icon">{icon}</div>
-        ))}
-      </div>
-
-      <div className="orbit-ring-2" />
-
-      <div className="avatar-placeholder">SN</div>
-    </div>
-  )
-}
 
 function App() {
   return (
@@ -47,7 +30,6 @@ function App() {
 
         {/* SIDEBAR */}
         <div className="sidebar">
-          <OrbitWrapper />
           <img src="https://via.placeholder.com/200" alt="profile"/>
           <h3>Frontend Developer</h3>
            <a href="/resume.pdf" target="_blank">
@@ -73,7 +55,7 @@ function App() {
       </div>
 
       {/* SKILLS SECTION */}
-      <section className="skills reveal">
+      <section className="skills">
         <h2 className="stagger-text">Skills</h2>
 
         <div className="skills-grid">
@@ -85,7 +67,7 @@ function App() {
           <div className="skill-card">Cloud</div>
         </div>
       </section>
-      <section className="experience reveal">
+      <section className="experience">
 
 <h2>Experience</h2>
 
@@ -93,7 +75,7 @@ function App() {
 
   {/* CARD 1 */}
   <div className="timeline-item left">
-    <div className="exp-card reveal">
+    <div className="exp-card">
       <div className="exp-image">Image</div>
 
       <div className="exp-content">
@@ -110,7 +92,7 @@ function App() {
 
   {/* CARD 2 */}
   <div className="timeline-item right">
-    <div className="exp-card reveal">
+    <div className="exp-card ">
       <div className="exp-image">Image</div>
 
       <div className="exp-content">
@@ -127,7 +109,7 @@ function App() {
 
   {/* CARD 3 */}
   <div className="timeline-item left">
-    <div className="exp-card reveal">
+    <div className="exp-card ">
       <div className="exp-image">Image</div>
 
       <div className="exp-content">
@@ -144,7 +126,7 @@ function App() {
 
   {/* CARD 4 */}
   <div className="timeline-item right">
-    <div className="exp-card reveal">
+    <div className="exp-card ">
       <div className="exp-image">Image</div>
 
       <div className="exp-content">
@@ -162,14 +144,14 @@ function App() {
 </div>
 
 </section>
-<section className="projects reveal">
+<section className="projects">
 
 <h2>Projects</h2>
 
 <div className="projects-grid">
 
 {/* PROJECT 1 */}
-<div className="project-card reveal">
+<div className="project-card">
 <div className="project-img">Image</div>
 <h3>Project One</h3>
 <p>Short description about the project will go here.</p>
@@ -177,7 +159,7 @@ function App() {
 </div>
 
 {/* PROJECT 2 */}
-<div className="project-card reveal">
+<div className="project-card">
 <div className="project-img">Image</div>
 <h3>Project Two</h3>
 <p>Short description about the project will go here.</p>
@@ -185,7 +167,7 @@ function App() {
 </div>
 
 {/* PROJECT 3 */}
-<div className="project-card reveal">
+<div className="project-card ">
 <div className="project-img">Image</div>
 <h3>Project Three</h3>
 <p>Short description about the project will go here.</p>
@@ -193,7 +175,7 @@ function App() {
 </div>
 
 {/* PROJECT 4 */}
-<div className="project-card reveal">
+<div className="project-card ">
 <div className="project-img">Image</div>
 <h3>Project Four</h3>
 <p>Short description about the project will go here.</p>
@@ -209,7 +191,7 @@ function App() {
 </div>
 
 {/* PROJECT 6 */}
-<div className="project-card reveal">
+<div className="project-card ">
 <div className="project-img">Image</div>
 <h3>Project Six</h3>
 <p>Short description about the project will go here.
@@ -224,7 +206,7 @@ function App() {
 </div>
 
 {/* PROJECT 7 */}
-<div className="project-card reveal">
+<div className="project-card">
 <div className="project-img">Image</div>
 <h3>Project Seven</h3>
 <p>Short description about the project will go here.</p>
@@ -232,7 +214,7 @@ function App() {
 </div>
 
 {/* PROJECT 8 */}
-<div className="project-card reveal">
+<div className="project-card">
 <div className="project-img">Image</div>
 <h3>Project Eight</h3>
 <p>Short description about the project will go here.</p>
@@ -240,7 +222,7 @@ function App() {
 </div>
 
 {/* PROJECT 9 */}
-<div className="project-card reveal">
+<div className="project-card ">
 <div className="project-img">Image</div>
 <h3>Project Nine</h3>
 <p>Short description about the project will go here.</p>
@@ -250,14 +232,14 @@ function App() {
 </div>
 
 </section>
-<section className="publications reveal">
+<section className="publications ">
 
 <h2>Publications</h2>
 
 <div className="publication-list">
 
 {/* PUBLICATION 1 */}
-<div className="publication-card reveal">
+<div className="publication-card ">
 <div className="pub-image">Image</div>
 
 <div className="pub-content">
@@ -275,7 +257,7 @@ the paper was published.
 
 
 {/* PUBLICATION 2 */}
-<div className="publication-card reveal">
+<div className="publication-card ">
 
 <div className="pub-image">Image</div>
 
@@ -293,7 +275,7 @@ and what contribution you made in the research.
 
 
 {/* PUBLICATION 3 */}
-<div className="publication-card reveal">
+<div className="publication-card ">
 
 <div className="pub-image">Image</div>
 
@@ -312,14 +294,14 @@ solution proposed in the research paper.
 </div>
 
 </section>
-<section className="achievements reveal">
+<section className="achievements ">
 
 <h2>Achievements & Awards</h2>
 
 <div className="achievements-grid">
 
 {/* CARD 1 */}
-<div className="achievement-card reveal">
+<div className="achievement-card ">
 
 <div className="image-group">
 <img src="https://via.placeholder.com/300" />
@@ -336,7 +318,7 @@ among multiple participating teams.
 
 
 {/* CARD 2 */}
-<div className="achievement-card reveal">
+<div className="achievement-card ">
 
 <div className="image-group">
 <img src="https://via.placeholder.com/300" />
@@ -353,7 +335,7 @@ recognition for innovative problem solving.
 
 
 {/* CARD 3 */}
-<div className="achievement-card reveal">
+<div className="achievement-card ">
 
 <div className="image-group">
 <img src="https://via.placeholder.com/300" />
@@ -371,7 +353,7 @@ top positions at inter-college events.
 </div>
 
 </section>
-<section className="contact-section reveal">
+<section className="contact-section">
 
 <h2>Contact & Feedback</h2>
 
@@ -379,7 +361,7 @@ top positions at inter-college events.
 
 {/* CONTACT CARD */}
 
-<div className="contact-card reveal">
+<div className="contact-card ">
 
 <h3>Contact Me</h3>
 
@@ -421,7 +403,7 @@ top positions at inter-college events.
 
 {/* FEEDBACK CARD */}
 
-<div className="feedback-card reveal">
+<div className="feedback-card ">
 
 <h3>Feedback</h3>
 
@@ -454,3 +436,7 @@ top positions at inter-college events.
 }
 
 export default App
+
+function App2(){
+  return <h1>Hello</h1>
+}
