@@ -3,9 +3,33 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import "./App.css"
+import { useEffect, useRef } from 'react'
 
+/* paste this hook at the top of App.jsx, outside the App function */
+function useScrollReveal() {
+  useEffect(() => {
+    const elements = document.querySelectorAll('.reveal')
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target) // animate only once
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+}
 
 function App() {
+  useScrollReveal() 
   return (
     
     <div className="page">
@@ -55,7 +79,7 @@ function App() {
       </div>
 
       {/* SKILLS SECTION */}
-      <section className="skills">
+      <section className="skills reveal from-left">
         <h2 className="stagger-text">Skills</h2>
 
         <div className="skills-grid">
@@ -67,7 +91,7 @@ function App() {
           <div className="skill-card">Cloud</div>
         </div>
       </section>
-      <section className="experience">
+      <section className="experience reveal">  
 
 <h2>Experience</h2>
 
@@ -144,7 +168,7 @@ function App() {
 </div>
 
 </section>
-<section className="projects">
+<section className="projects reveal from-left"> 
 
 <h2>Projects</h2>
 
@@ -232,7 +256,7 @@ function App() {
 </div>
 
 </section>
-<section className="publications ">
+<section className="publications reveal">            {/* ← right */}
 
 <h2>Publications</h2>
 
@@ -294,7 +318,7 @@ solution proposed in the research paper.
 </div>
 
 </section>
-<section className="achievements ">
+<section className="achievements reveal from-left"> 
 
 <h2>Achievements & Awards</h2>
 
@@ -353,7 +377,7 @@ top positions at inter-college events.
 </div>
 
 </section>
-<section className="contact-section">
+<section className="contact-section reveal">
 
 <h2>Contact & Feedback</h2>
 
