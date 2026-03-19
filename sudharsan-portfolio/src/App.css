@@ -1,30 +1,22 @@
-*{
-  margin:0px;
-  padding:0px;
-  
+/* REMOVE max-width from body entirely */
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f172a;
+  font-family: 'Times New Roman', Times, serif;
+  width: 100%;
 }
 
-body{
-  margin:0;
-  padding:0;
-  background:#0f172a;
-  font-family:'Times New Roman', Times, serif, Helvetica, sans-serif;
+/* PAGE — remove max-width, let it go full width */
+.page {
+  background: #0f172a;
+  min-height: 100vh;
+  width: 100%;
 }
 
-/* PAGE */
-
-.page{
-  background:#0f172a;
-  min-height:100vh;
-  width:100%;
-  max-width: 1500px;
-  height: 100%;
-  margin:auto;
-  
-}
-html, body{
-  width:100%;
-  overflow-x:hidden;
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 
