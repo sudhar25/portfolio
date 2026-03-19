@@ -32,25 +32,25 @@ function App() {
   useScrollReveal() 
   return (
     
-    <div className="page">
+    <div id="about" className="page">
 
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo">Sudharsan Nadar</div>
 
         <ul className="nav-links">
-          <li>About Me</li>
-          <li>Projects</li>
-          <li>Skills</li>
-          <li>Achievements</li>
-          <li>Publications</li>
-          <li>Experience</li>
-          <li>Contact</li>
-        </ul>
+  <li onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>About Me</li>
+  <li onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>Projects</li>
+  <li onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}>Skills</li>
+  <li onClick={() => document.getElementById('achievements').scrollIntoView({ behavior: 'smooth' })}>Achievements</li>
+  <li onClick={() => document.getElementById('publications').scrollIntoView({ behavior: 'smooth' })}>Publications</li>
+  <li onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}>Experience</li>
+  <li onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Contact</li>
+</ul>
       </nav>
 
       {/* MAIN SECTION */}
-      <div className="container">
+      <div id="about" className="container">
 
         {/* SIDEBAR */}
         <div className="sidebar">
@@ -79,7 +79,7 @@ function App() {
       </div>
 
       {/* SKILLS SECTION */}
-      <section className="skills reveal from-left">
+      <section id="skills" className="skills reveal from-left">
         <h2 className="stagger-text">Skills</h2>
 
         <div className="skills-grid">
@@ -91,7 +91,7 @@ function App() {
           <div className="skill-card">Cloud</div>
         </div>
       </section>
-      <section className="experience reveal">  
+      <section id="experience" className="experience reveal">  
 
 <h2>Experience</h2>
 
@@ -168,7 +168,7 @@ function App() {
 </div>
 
 </section>
-<section className="projects reveal from-left"> 
+<section id="projects" className="projects reveal from-left"> 
 
 <h2>Projects</h2>
 
@@ -256,7 +256,7 @@ function App() {
 </div>
 
 </section>
-<section className="publications reveal">            {/* ← right */}
+<section id="publications" className="publications reveal">            {/* ← right */}
 
 <h2>Publications</h2>
 
@@ -318,7 +318,7 @@ solution proposed in the research paper.
 </div>
 
 </section>
-<section className="achievements reveal from-left"> 
+<section id="achievements" className="achievements reveal from-left"> 
 
 <h2>Achievements & Awards</h2>
 
@@ -377,7 +377,7 @@ top positions at inter-college events.
 </div>
 
 </section>
-<section className="contact-section reveal">
+<section id="contact" className="contact-section reveal">
 
 <h2>Contact & Feedback</h2>
 
@@ -461,6 +461,3 @@ top positions at inter-college events.
 
 export default App
 
-function App2(){
-  return <h1>Hello</h1>
-}
