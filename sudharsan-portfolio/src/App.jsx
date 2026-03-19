@@ -97,7 +97,7 @@ function App() {
         {/* SIDEBAR */}
         <div className="sidebar">
           <img src="https://via.placeholder.com/200" alt="profile"/>
-          <h3>Frontend Developer</h3>
+          <h3>B.E. Computer Engineering</h3>
            <a href="/resume.pdf" target="_blank">
     <button className="resume-btn">View Resume</button>
   </a>
@@ -120,6 +120,52 @@ function App() {
 
       </div>
 
+<div className="marquee-container">
+  <div className="marquee-track">
+
+    {/* CARD 1 */}
+    <div className="marquee-card">
+      <img src="/img1.jpg" alt="" />
+      <div className="marquee-text">React Projects</div>
+    </div>
+
+    {/* CARD 2 */}
+    <div className="marquee-card">
+      <img src="/img2.jpg" alt="" />
+      <div className="marquee-text">IoT System</div>
+    </div>
+
+    {/* CARD 3 */}
+    <div className="marquee-card">
+      <img src="/img3.jpg" alt="" />
+      <div className="marquee-text">AI Model</div>
+    </div>
+
+    {/* CARD 4 */}
+    <div className="marquee-card">
+      <img src="/img4.jpg" alt="" />
+      <div className="marquee-text">Web App</div>
+    </div>
+
+    {/* CARD 5 */}
+    <div className="marquee-card">
+      <img src="/img5.jpg" alt="" />
+      <div className="marquee-text">Cloud Project</div>
+    </div>
+
+    {/* DUPLICATE (for smooth infinite loop) */}
+    <div className="marquee-card">
+      <img src="/img1.jpg" alt="" />
+      <div className="marquee-text">React Projects</div>
+    </div>
+
+    <div className="marquee-card">
+      <img src="/img2.jpg" alt="" />
+      <div className="marquee-text">IoT System</div>
+    </div>
+
+  </div>
+</div>
       {/* SKILLS SECTION */}
       <section id="skills" className="skills reveal from-left">
         <h2><WaveText text="Skills" /></h2>

@@ -997,3 +997,82 @@ html {
     transform: translateY(0) rotate(0deg);
   }
 }
+
+/* MARQUEE CONTAINER */
+
+.marquee-container{
+  overflow:hidden;
+  width:100%;
+  margin-top:40px;
+  position:relative;
+}
+
+/* TRACK (ANIMATION) */
+
+.marquee-track{
+  display:flex;
+  gap:30px;
+  width:max-content;
+  animation:scrollRight 18s linear infinite;
+}
+
+/* ANIMATION → LEFT TO RIGHT */
+
+@keyframes scrollRight{
+  0%{
+    transform:translateX(-50%);
+  }
+  100%{
+    transform:translateX(0%);
+  }
+}
+
+/* CARD */
+
+.marquee-card{
+  position:relative;
+  width:300px;
+  height:260px;
+  border-radius:12px;
+  overflow:hidden;
+  flex-shrink:0;
+  background:#1e293b;
+  transition:0.3s;
+  box-shadow:10px 8px 0px rgb(191 219 254);
+}
+
+/* IMAGE */
+
+.marquee-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.9s;
+}
+
+/* TEXT (BOTTOM LEFT) */
+
+.marquee-text{
+  position:absolute;
+  bottom:10px;
+  left:12px;
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  background:rgba(0,0,0,0.5);
+  padding:4px 10px;
+  border-radius:6px;
+}
+
+/* HOVER EFFECT */
+
+.marquee-card:hover{
+  transform:scale(1.05);
+}
+
+.marquee-card:hover img{
+  transform:scale(1.1);
+}
+.marquee-container:hover .marquee-track{
+  animation-play-state:paused;
+}
