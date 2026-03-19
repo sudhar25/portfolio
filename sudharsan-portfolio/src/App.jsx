@@ -5,6 +5,86 @@ import heroImg from './assets/hero.png'
 import "./App.css"
 import { useEffect, useRef } from 'react'
 
+function LeadershipCard({ tag, title, desc, date, attendees, skills, images }) {
+  const [current, setCurrent] = useState(0)
+
+  const prev = () =>
+    setCurrent((c) => (c === 0 ? images.length - 1 : c - 1))
+
+  const next = () =>
+    setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+
+  /* auto-play */
+  useEffect(() => {
+    const timer = setInterval(next, 3000)
+    return () => clearInterval(timer)
+  }, [current])
+
+  return (
+    <div className="leadership-card">
+
+      {/* CAROUSEL */}
+      <div className="carousel">
+        <div
+          className="carousel-track"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {images.map((img, i) => (
+            <div key={i} className="carousel-slide">
+              {img
+                ? <img src={img} alt={`slide ${i + 1}`} />
+                : `Image ${i + 1}`
+              }
+            </div>
+          ))}
+        </div>
+
+        {/* PREV / NEXT */}
+        <button className="carousel-btn prev" onClick={prev}>‹</button>
+        <button className="carousel-btn next" onClick={next}>›</button>
+
+        {/* DOTS */}
+        <div className="carousel-dots">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              className={`carousel-dot ${i === current ? 'active' : ''}`}
+              onClick={() => setCurrent(i)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* TEXT CONTENT */}
+      <div className="leadership-content">
+        <span className="leadership-tag">{tag}</span>
+        <h3>{title}</h3>
+        <p>{desc}</p>
+
+        {/* META */}
+        <div className="leadership-meta">
+          <div className="leadership-meta-item">
+            <span>📅</span>
+            <span>{date}</span>
+          </div>
+          <div className="leadership-meta-item">
+            <span>👥</span>
+            <span>{attendees} attendees</span>
+          </div>
+        </div>
+
+        {/* SKILL TAGS */}
+        <div className="leadership-skills">
+          {skills.map((s, i) => (
+            <span key={i} className="leadership-skill">{s}</span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  )
+}
+
 /* paste this hook at the top of App.jsx, outside the App function */
 function useScrollReveal() {
   useEffect(() => {
@@ -88,6 +168,7 @@ function App() {
   <li onClick={() => document.getElementById('publications').scrollIntoView({ behavior: 'smooth' })}>Publications</li>
   <li onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}>Experience</li>
   <li onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Contact</li>
+  <li onClick={() => document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' })}>Leadership</li>
 </ul>
       </nav>
 
@@ -464,6 +545,49 @@ top positions at inter-college events.
 </div>
 
 </section>
+
+{/* LEADERSHIP SECTION */}
+<section id="leadership" className="leadership reveal from-left">
+  <h2><WaveText text="Leadership & Events" /></h2>
+  <p className="section-subtitle" style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '0' }}>
+    Events I have organised and led
+  </p>
+
+  <div className="leadership-grid">
+
+    <LeadershipCard
+      tag="Event Organiser"
+      title="National Tech Symposium 2024"
+      desc="Led a team of 20 volunteers to organise a national-level tech symposium with speakers, workshops, and panel discussions across two days."
+      date="March 2024"
+      attendees="500+"
+      skills={['Team Leadership', 'Event Planning', 'Public Speaking']}
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+    <LeadershipCard
+      tag="Club Lead"
+      title="Hackathon — HackFest 2024"
+      desc="Organised and mentored participants in a 24-hour hackathon. Handled logistics, judging panel coordination and sponsor communication."
+      date="August 2024"
+      attendees="200+"
+      skills={['Coordination', 'Mentoring', 'Problem Solving']}
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+    
+
+  </div>
+</section>
+
 <section id="contact" className="contact-section reveal">
 
 <h2><WaveText text="Contact" /></h2>
