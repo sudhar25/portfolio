@@ -28,6 +28,48 @@ function useScrollReveal() {
   }, [])
 }
 
+
+
+function WaveText({ text }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.querySelectorAll('.char').forEach((char) => {
+            char.style.animationPlayState = 'running'
+          })
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <span className="wave-text" ref={ref}>
+      {text.split('').map((char, i) => (
+        <span
+          key={i}
+          className="char"
+          style={{
+            animationDelay: `${i * 0.07}s`,
+            animationPlayState: 'paused',  /* paused until scrolled into view */
+          }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </span>
+      ))}
+    </span>
+  )
+}
 function App() {
   useScrollReveal() 
   return (
@@ -66,7 +108,7 @@ function App() {
 
         {/* CONTENT */}
         <div className="content">
-          <h1>Hello 👋</h1>
+          <h1 className="flip-text">Hello 👋</h1>
           <p>
             This is where your main portfolio introduction will go.
             You can later write about your projects, experience,
@@ -80,7 +122,7 @@ function App() {
 
       {/* SKILLS SECTION */}
       <section id="skills" className="skills reveal from-left">
-        <h2 className="stagger-text">Skills</h2>
+        <h2><WaveText text="Skills" /></h2>
 
         <div className="skills-grid">
           <div className="skill-card">React</div>
@@ -93,8 +135,7 @@ function App() {
       </section>
       <section id="experience" className="experience reveal">  
 
-<h2>Experience</h2>
-
+<h2><WaveText text="Experience" /></h2>
 <div className="timeline">
 
   {/* CARD 1 */}
@@ -170,7 +211,7 @@ function App() {
 </section>
 <section id="projects" className="projects reveal from-left"> 
 
-<h2>Projects</h2>
+<h2><WaveText text="Projects" /></h2>
 
 <div className="projects-grid">
 
@@ -258,7 +299,7 @@ function App() {
 </section>
 <section id="publications" className="publications reveal">            {/* ← right */}
 
-<h2>Publications</h2>
+<h2><WaveText text="Publications" /></h2>
 
 <div className="publication-list">
 
@@ -320,7 +361,7 @@ solution proposed in the research paper.
 </section>
 <section id="achievements" className="achievements reveal from-left"> 
 
-<h2>Achievements & Awards</h2>
+<h2><WaveText text="Achievements" /></h2>
 
 <div className="achievements-grid">
 
@@ -379,49 +420,49 @@ top positions at inter-college events.
 </section>
 <section id="contact" className="contact-section reveal">
 
-<h2>Contact & Feedback</h2>
+<h2><WaveText text="Contact" /></h2>
 
 <div className="contact-container">
 
 {/* CONTACT CARD */}
 
-<div className="contact-card ">
+<div className="contact-card">
+  <h3>Contact Me</h3>
 
-<h3>Contact Me</h3>
+  {/* Phone */}
+  <a href="tel:+91XXXXXXXXXX" className="contact-item">
+    <div className="contact-item-icon">📞</div>
+    <div className="contact-item-text">
+      <span className="contact-item-label">Phone</span>
+      <span className="contact-item-value">+91 XXXXX XXXXX</span>
+    </div>
+  </a>
 
-{/* Image */}
-<div className="contact-image">
-<img src="/contact-image.png" alt="contact"/>
-</div>
+  {/* Email */}
+  <a href="mailto:example@email.com" className="contact-item">
+    <div className="contact-item-icon">✉️</div>
+    <div className="contact-item-text">
+      <span className="contact-item-label">Email</span>
+      <span className="contact-item-value">example@email.com</span>
+    </div>
+  </a>
 
-{/* Mobile */}
-<a href="tel:+91XXXXXXXXXX" className="contact-item">
-<i className="fas fa-phone"></i>
-<span>+91 XXXXX XXXXX</span>
-</a>
+  {/* Social Icons */}
+  <div className="social-icons">
+    <a href="https://github.com/" target="_blank" className="github"
+       title="GitHub">
+      <i className="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/" target="_blank" className="linkedin"
+       title="LinkedIn">
+      <i className="fab fa-linkedin"></i>
+    </a>
+    <a href="https://instagram.com/" target="_blank" className="instagram"
+       title="Instagram">
+      <i className="fab fa-instagram"></i>
+    </a>
+  </div>
 
-{/* Email */}
-<a href="mailto:example@email.com" className="contact-item">
-<i className="fas fa-envelope"></i>
-<span>example@email.com</span>
-</a>
-
-{/* Social Icons */}
-<div className="social-icons">
-
-<a href="https://github.com/" target="_blank">
-<i className="fab fa-github"></i>
-</a>
-
-<a href="https://linkedin.com/" target="_blank">
-<i className="fab fa-linkedin"></i>
-</a>
-
-<a href="https://instagram.com/" target="_blank">
-<i className="fab fa-instagram"></i>
-</a>
-
-</div>
 
 </div>
 

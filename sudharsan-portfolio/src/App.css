@@ -53,6 +53,45 @@ html, body {
   color:#38bdf8;
 }
 
+/* NAV LINKS HOVER BUTTON */
+.nav-links li {
+  cursor: pointer;
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-links li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.nav-links li:hover {
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.07);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.15);
+}
+
+.nav-links li:hover::before {
+  animation: shineSwipe 0.55s ease forwards;
+}
 /* MAIN CONTAINER */
 
 .container{
@@ -849,8 +888,8 @@ flex-direction:column;
 .reveal {
   opacity: 0;
   transform: translateX(60px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.from-left {
@@ -865,3 +904,96 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* SHINING BUTTON */
+.resume-btn,
+.exp-btn,
+.project-card button,
+.pub-content button,
+.feedback-card button,
+.btn {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.resume-btn::before,
+.exp-btn::before,
+.project-card button::before,
+.pub-content button::before,
+.feedback-card button::before,
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.resume-btn:hover::before,
+.exp-btn:hover::before,
+.project-card button:hover::before,
+.pub-content button:hover::before,
+.feedback-card button:hover::before,
+.btn:hover::before {
+  animation: shineSwipe 0.55s ease forwards;
+}
+
+.resume-btn:hover,
+.exp-btn:hover,
+.project-card button:hover,
+.pub-content button:hover,
+.feedback-card button:hover,
+.btn:hover {
+  box-shadow: 0 0 18px rgba(87, 199, 248, 0.4);
+  transform: scale(1.04);
+}
+
+@keyframes shineSwipe {
+  to {
+    left: 150%;
+  }
+}
+
+/* ── FLIP TEXT "Hello 👋" ── */
+.flip-text {
+  display: inline-block;
+  animation: flipIn 0.10s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@keyframes flipIn {
+  0%   { transform: rotateX(90deg) scale(0.8); opacity: 0; }
+  60%  { transform: rotateX(-10deg) scale(1.05); opacity: 1; }
+  100% { transform: rotateX(0deg) scale(1); opacity: 1; }
+}
+
+/* ── WAVE REVEAL for all h2 headings ── */
+.wave-text {
+  display: inline-block;
+}
+
+.wave-text .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotate(8deg);
+  animation: waveReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes waveReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
