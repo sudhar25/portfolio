@@ -148,6 +148,8 @@ html, body {
   margin-bottom:30px;
 }
 
+
+
 /* BUTTON */
 
 .btn{
@@ -300,6 +302,7 @@ html, body {
 .exp-btn:hover{
   background:#0284c7;
 }
+
 /* PROJECT SECTION */
 
 .projects{
@@ -384,6 +387,79 @@ transition:0.3s;
 background:#0284c7;
 }
 
+/*triyal*/
+
+.projects {
+  padding: 80px;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .projects { padding: 50px 24px; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+
+/* VIEW DETAILS BUTTON inside leadership/project card */
+.leadership-view-btn {
+  margin-top: 16px;
+  padding: 9px 20px;
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  width: 50;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.leadership-view-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.leadership-view-btn:hover {
+  background: rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+  color: white;
+}
+
+.leadership-view-btn:hover::before {
+  animation: shineSwipe 0.55s ease forwards;
+}
+
 /* PUBLICATIONS SECTION */
 
 .publications{
@@ -396,7 +472,6 @@ font-size:36px;
 margin-bottom:50px;
 color:white;
 }
-
 
 /* STACK LAYOUT */
 
@@ -871,7 +946,7 @@ flex-direction:column;
 /* ── PAGE LOAD: slides in from right on first load ── */
 @keyframes slideInFromRight {
   from {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(60px);
   }
   to {
@@ -881,7 +956,7 @@ flex-direction:column;
 }
 
 .page {
-  animation: slideInFromRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideInFromRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* ── SCROLL REVEAL: elements slide in from right as you scroll ── */
@@ -965,19 +1040,6 @@ html {
 }
 
 /* ── FLIP TEXT "Hello 👋" ── */
-.flip-text {
-  display: inline-block;
-  animation: flipIn 0.10s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  transform-origin: center;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-@keyframes flipIn {
-  0%   { transform: rotateX(90deg) scale(0.8); opacity: 0; }
-  60%  { transform: rotateX(-10deg) scale(1.05); opacity: 1; }
-  100% { transform: rotateX(0deg) scale(1); opacity: 1; }
-}
 
 /* ── WAVE REVEAL for all h2 headings ── */
 .wave-text {

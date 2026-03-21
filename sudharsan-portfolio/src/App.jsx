@@ -5,7 +5,7 @@ import heroImg from './assets/hero.png'
 import "./App.css"
 import { useEffect, useRef } from 'react'
 
-function LeadershipCard({ tag, title, desc, date, attendees, skills, images }) {
+function LeadershipCard({ tag, title, desc, skills, images, link }) {
   const [current, setCurrent] = useState(0)
 
   const prev = () =>
@@ -14,11 +14,12 @@ function LeadershipCard({ tag, title, desc, date, attendees, skills, images }) {
   const next = () =>
     setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
 
-  /* auto-play */
   useEffect(() => {
-    const timer = setInterval(next, 3000)
+    const timer = setInterval(() => {
+      setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+    }, 3000)
     return () => clearInterval(timer)
-  }, [current])
+  }, [images.length])
 
   return (
     <div className="leadership-card">
@@ -33,17 +34,14 @@ function LeadershipCard({ tag, title, desc, date, attendees, skills, images }) {
             <div key={i} className="carousel-slide">
               {img
                 ? <img src={img} alt={`slide ${i + 1}`} />
-                : `Image ${i + 1}`
-              }
+                : `Image ${i + 1}`}
             </div>
           ))}
         </div>
 
-        {/* PREV / NEXT */}
         <button className="carousel-btn prev" onClick={prev}>‹</button>
         <button className="carousel-btn next" onClick={next}>›</button>
 
-        {/* DOTS */}
         <div className="carousel-dots">
           {images.map((_, i) => (
             <button
@@ -57,30 +55,27 @@ function LeadershipCard({ tag, title, desc, date, attendees, skills, images }) {
 
       {/* TEXT CONTENT */}
       <div className="leadership-content">
-        <span className="leadership-tag">{tag}</span>
+
+        {tag && <span className="leadership-tag">{tag}</span>}
+
         <h3>{title}</h3>
         <p>{desc}</p>
 
-        {/* META */}
-        <div className="leadership-meta">
-          <div className="leadership-meta-item">
-            <span>📅</span>
-            <span>{date}</span>
+        {skills && skills.length > 0 && (
+          <div className="leadership-skills">
+            {skills.map((s, i) => (
+              <span key={i} className="leadership-skill">{s}</span>
+            ))}
           </div>
-          <div className="leadership-meta-item">
-            <span>👥</span>
-            <span>{attendees} attendees</span>
-          </div>
-        </div>
+        )}
 
-        {/* SKILL TAGS */}
-        <div className="leadership-skills">
-          {skills.map((s, i) => (
-            <span key={i} className="leadership-skill">{s}</span>
-          ))}
-        </div>
+        <a href={link || '#'} target="_blank" rel="noreferrer">
+          <button className="leadership-view-btn">
+            View Details ↗
+          </button>
+        </a>
+
       </div>
-
     </div>
   )
 }
@@ -168,7 +163,7 @@ function App() {
   <li onClick={() => document.getElementById('publications').scrollIntoView({ behavior: 'smooth' })}>Publications</li>
   <li onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}>Experience</li>
   <li onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Contact</li>
-  <li onClick={() => document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' })}>Leadership</li>
+  <li onClick={() => document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' })}>Blog</li>
 </ul>
       </nav>
 
@@ -260,6 +255,10 @@ function App() {
           <div className="skill-card">Cloud</div>
         </div>
       </section>
+
+
+      
+ 
       <section id="experience" className="experience reveal">  
 
 <h2><WaveText text="Experience" /></h2>
@@ -336,94 +335,148 @@ function App() {
 </div>
 
 </section>
-<section id="projects" className="projects reveal from-left"> 
 
-<h2><WaveText text="Projects" /></h2>
 
-<div className="projects-grid">
 
-{/* PROJECT 1 */}
-<div className="project-card">
-<div className="project-img">Image</div>
-<h3>Project One</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
 
-{/* PROJECT 2 */}
-<div className="project-card">
-<div className="project-img">Image</div>
-<h3>Project Two</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
 
-{/* PROJECT 3 */}
-<div className="project-card ">
-<div className="project-img">Image</div>
-<h3>Project Three</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
 
-{/* PROJECT 4 */}
-<div className="project-card ">
-<div className="project-img">Image</div>
-<h3>Project Four</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
+<section id="projects" className="projects reveal from-left">
+  <h2><WaveText text="Projects" /></h2>
 
-{/* PROJECT 5 */}
-<div className="project-card">
-<div className="project-img">Image</div>
-<h3>Project Five</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
+  <div className="projects-grid">
 
-{/* PROJECT 6 */}
-<div className="project-card ">
-<div className="project-img">Image</div>
-<h3>Project Six</h3>
-<p>Short description about the project will go here.
-  hello
-  how is thias
-  help to modify thi
-  testing for length
-  of the box 
-  give feedback on this
-</p>
-<button>View Details</button>
-</div>
+    <LeadershipCard
+      tag="Web App"
+      title="Project One"
+      desc="Short description about the project will go here."
+      date="Jan 2024"
+      attendees="Solo"
+      skills={['React', 'Node.js']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
 
-{/* PROJECT 7 */}
-<div className="project-card">
-<div className="project-img">Image</div>
-<h3>Project Seven</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
+    <LeadershipCard
+      tag="Full Stack"
+      title="Project Two"
+      desc="Short description about the project will go here."
+      date="Feb 2024"
+      attendees="Team of 3"
+      skills={['Python', 'MongoDB']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
 
-{/* PROJECT 8 */}
-<div className="project-card">
-<div className="project-img">Image</div>
-<h3>Project Eight</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
+    <LeadershipCard
+      tag="Frontend"
+      title="Project Three"
+      desc="Short description about the project will go here."
+      date="Mar 2024"
+      attendees="Solo"
+      skills={['React', 'Tailwind']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
 
-{/* PROJECT 9 */}
-<div className="project-card ">
-<div className="project-img">Image</div>
-<h3>Project Nine</h3>
-<p>Short description about the project will go here.</p>
-<button>View Details</button>
-</div>
+    <LeadershipCard
+      tag="Backend"
+      title="Project Four"
+      desc="Short description about the project will go here."
+      date="Apr 2024"
+      attendees="Team of 2"
+      skills={['Node.js', 'SQL']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
 
-</div>
+    <LeadershipCard
+      tag="ML"
+      title="Project Five"
+      desc="Short description about the project will go here."
+      date="May 2024"
+      attendees="Solo"
+      skills={['Python', 'TensorFlow']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
 
+    <LeadershipCard
+      tag="Cloud"
+      title="Project Six"
+      desc="Short description about the project will go here."
+      date="Jun 2024"
+      attendees="Team of 4"
+      skills={['AWS', 'Docker']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+    <LeadershipCard
+      tag="Mobile"
+      title="Project Seven"
+      desc="Short description about the project will go here."
+      date="Jul 2024"
+      attendees="Solo"
+      skills={['React Native']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+    <LeadershipCard
+      tag="API"
+      title="Project Eight"
+      desc="Short description about the project will go here."
+      date="Aug 2024"
+      attendees="Team of 2"
+      skills={['Express', 'REST']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+    <LeadershipCard
+      tag="Open Source"
+      title="Project Nine"
+      desc="Short description about the project will go here."
+      date="Sep 2024"
+      attendees="Solo"
+      skills={['JavaScript', 'GitHub']}
+      link="https://github.com/your-project-link"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+  </div>
 </section>
+
+
+
 <section id="publications" className="publications reveal">            {/* ← right */}
 
 <h2><WaveText text="Publications" /></h2>
@@ -560,8 +613,6 @@ top positions at inter-college events.
       title="National Tech Symposium 2024"
       desc="Led a team of 20 volunteers to organise a national-level tech symposium with speakers, workshops, and panel discussions across two days."
       date="March 2024"
-      attendees="500+"
-      skills={['Team Leadership', 'Event Planning', 'Public Speaking']}
       images={[
         'https://via.placeholder.com/600x220',
         'https://via.placeholder.com/600x220',
@@ -574,8 +625,7 @@ top positions at inter-college events.
       title="Hackathon — HackFest 2024"
       desc="Organised and mentored participants in a 24-hour hackathon. Handled logistics, judging panel coordination and sponsor communication."
       date="August 2024"
-      attendees="200+"
-      skills={['Coordination', 'Mentoring', 'Problem Solving']}
+
       images={[
         'https://via.placeholder.com/600x220',
         'https://via.placeholder.com/600x220',
