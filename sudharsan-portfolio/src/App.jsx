@@ -5,6 +5,64 @@ import heroImg from './assets/hero.png'
 import "./App.css"
 import { useEffect, useRef } from 'react'
 
+
+function MarqueeCard({ item }) {
+  const [current, setCurrent] = useState(0)
+
+  const prev = (e) => {
+    e.stopPropagation()
+    setCurrent((c) => (c === 0 ? item.images.length - 1 : c - 1))
+  }
+
+  const next = (e) => {
+    e.stopPropagation()
+    setCurrent((c) => (c === item.images.length - 1 ? 0 : c + 1))
+  }
+
+  return (
+    <div className="leadership-marquee-card">
+
+      {/* CAROUSEL */}
+      <div className="marquee-card-carousel">
+        <div
+          className="marquee-card-track"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {item.images.map((img, i) => (
+            <div key={i} className="marquee-card-slide">
+              <img src={img} alt={`slide ${i + 1}`} />
+            </div>
+          ))}
+        </div>
+
+        {/* PREV / NEXT */}
+        <button className="mq-btn prev" onClick={prev}>‹</button>
+        <button className="mq-btn next" onClick={next}>›</button>
+
+        {/* DOTS */}
+        <div className="mq-dots">
+          {item.images.map((_, i) => (
+            <span
+              key={i}
+              className={`mq-dot ${i === current ? 'active' : ''}`}
+              onClick={(e) => { e.stopPropagation(); setCurrent(i) }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* TEXT */}
+      <div className="marquee-card-content">
+        <span className="leadership-tag">{item.tag}</span>
+        <h3>{item.title}</h3>
+        <p>{item.desc}</p>
+        
+      </div>
+
+    </div>
+  )
+}
+
 function LeadershipCard({ tag, title, desc, skills, images, link }) {
   const [current, setCurrent] = useState(0)
 
@@ -599,42 +657,107 @@ top positions at inter-college events.
 
 </section>
 
-{/* LEADERSHIP SECTION */}
+{/* LEADERSHIP */}
 <section id="leadership" className="leadership reveal from-left">
   <h2><WaveText text="Leadership & Events" /></h2>
-  <p className="section-subtitle" style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '0' }}>
+  <p className="section-subtitle" style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px' }}>
     Events I have organised and led
   </p>
 
-  <div className="leadership-grid">
+  <div className="leadership-marquee-wrapper">
+    <div className="leadership-marquee-track">
 
-    <LeadershipCard
-      tag="Event Organiser"
-      title="National Tech Symposium 2024"
-      desc="Led a team of 20 volunteers to organise a national-level tech symposium with speakers, workshops, and panel discussions across two days."
-      date="March 2024"
-      images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-      ]}
-    />
+      {[
+        {
+          tag: 'Event Organiser',
+          title: 'National Tech Symposium 2024',
+          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
+         
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Hackathon — HackFest 2024',
+          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Event Organiser',
+          title: 'Tech Talk Series 2024',
+          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Open Source Drive 2023',
+          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        /* DUPLICATES for infinite loop */
+        {
+          tag: 'Event Organiser',
+          title: 'National Tech Symposium 2024',
+          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Hackathon — HackFest 2024',
+          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Event Organiser',
+          title: 'Tech Talk Series 2024',
+          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Open Source Drive 2023',
+          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+      ].map((item, i) => (
+        <MarqueeCard key={i} item={item} />
+      ))}
 
-    <LeadershipCard
-      tag="Club Lead"
-      title="Hackathon — HackFest 2024"
-      desc="Organised and mentored participants in a 24-hour hackathon. Handled logistics, judging panel coordination and sponsor communication."
-      date="August 2024"
-
-      images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-      ]}
-    />
-
-    
-
+    </div>
   </div>
 </section>
 
