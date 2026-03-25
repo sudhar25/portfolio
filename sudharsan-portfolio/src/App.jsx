@@ -230,7 +230,7 @@ function App() {
 
         {/* SIDEBAR */}
         <div className="sidebar">
-          <img src="https://via.placeholder.com/200" alt="profile"/>
+          <img src="assets/me.JPG" alt="profile"/>
           <h3>B.E. Computer Engineering</h3>
            <a href="/resume.pdf" target="_blank">
     <button className="resume-btn">View Resume</button>
@@ -259,7 +259,7 @@ function App() {
 
     {/* CARD 1 */}
     <div className="marquee-card">
-      <img src="/img1.jpg" alt="" />
+      <img src="/me.jpg" alt="" />
       <div className="marquee-text">React Projects</div>
     </div>
 
