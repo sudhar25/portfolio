@@ -6,6 +6,109 @@ import "./App.css"
 import { useEffect, useRef } from 'react'
 
 
+function PubCard({ images, title, desc, link }) {
+  const [current, setCurrent] = useState(0)
+
+  return (
+    <div className="publication-card">
+
+      {/* CAROUSEL */}
+      <div className="pub-carousel">
+        <div
+          className="pub-carousel-track"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {images.map((img, i) => (
+            <div key={i} className="pub-carousel-slide">
+              <img src={img} alt={`slide ${i + 1}`} />
+            </div>
+          ))}
+        </div>
+
+        <button
+          className="pub-car-btn prev"
+          onClick={() => setCurrent(c => c === 0 ? images.length - 1 : c - 1)}
+        >‹</button>
+        <button
+          className="pub-car-btn next"
+          onClick={() => setCurrent(c => c === images.length - 1 ? 0 : c + 1)}
+        >›</button>
+
+        <div className="pub-car-dots">
+          {images.map((_, i) => (
+            <span
+              key={i}
+              className={`pub-car-dot ${i === current ? 'active' : ''}`}
+              onClick={() => setCurrent(i)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="pub-content">
+        <h3>{title}</h3>
+        <p>{desc}</p>
+        <a href={link || '#'} target="_blank" rel="noreferrer">
+          <button>View Paper ↗</button>
+        </a>
+      </div>
+
+    </div>
+  )
+}
+
+
+function ExpCard({ images, title, desc, side }) {
+  const [current, setCurrent] = useState(0)
+
+  return (
+    <div className={`timeline-item ${side}`}>
+      <div className="exp-card">
+
+        <div className="exp-image-carousel">
+          <div
+            className="exp-carousel-track"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {images.map((img, i) => (
+              <div key={i} className="exp-carousel-slide">
+                <img src={img} alt={`slide ${i + 1}`} />
+              </div>
+            ))}
+          </div>
+
+          <button
+            className="exp-car-btn prev"
+            onClick={() => setCurrent(c => c === 0 ? images.length - 1 : c - 1)}
+          >‹</button>
+          <button
+            className="exp-car-btn next"
+            onClick={() => setCurrent(c => c === images.length - 1 ? 0 : c + 1)}
+          >›</button>
+
+          <div className="exp-car-dots">
+            {images.map((_, i) => (
+              <span
+                key={i}
+                className={`exp-car-dot ${i === current ? 'active' : ''}`}
+                onClick={() => setCurrent(i)}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="exp-content">
+          <h3>{title}</h3>
+          <p>{desc}</p>
+          <button className="exp-btn">View Details</button>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
 function MarqueeCard({ item }) {
   const [current, setCurrent] = useState(0)
 
@@ -230,8 +333,8 @@ function App() {
 
         {/* SIDEBAR */}
         <div className="sidebar">
-          <img src="assets/me.JPG" alt="profile"/>
-          <h3>B.E. Computer Engineering</h3>
+          <img src="/me.JPG" alt="profile"/>
+          <h3>Sudharsan Nadar - B.E. Computer Engineering</h3>
            <a href="/resume.pdf" target="_blank">
     <button className="resume-btn">View Resume</button>
   </a>
@@ -254,146 +357,173 @@ function App() {
 
       </div>
 
-<div className="marquee-container">
-  <div className="marquee-track">
 
-    {/* CARD 1 */}
-    <div className="marquee-card">
-      <img src="/me.jpg" alt="" />
-      <div className="marquee-text">React Projects</div>
+{/* LEADERSHIP */}
+<section id="leadership" className="leadership reveal from-left">
+  <h2><WaveText text="Leadership & Events" /></h2>
+  <p className="section-subtitle" style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px' }}>
+    Events I have organised and led
+  </p>
+
+  <div className="leadership-marquee-wrapper">
+    <div className="leadership-marquee-track">
+
+      {[
+        {
+          tag: 'Event Organiser',
+          title: 'National Tech Symposium 2024',
+          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
+         
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Hackathon — HackFest 2024',
+          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Event Organiser',
+          title: 'Tech Talk Series 2024',
+          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Open Source Drive 2023',
+          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        /* DUPLICATES for infinite loop */
+        {
+          tag: 'Event Organiser',
+          title: 'National Tech Symposium 2024',
+          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Hackathon — HackFest 2024',
+          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Event Organiser',
+          title: 'Tech Talk Series 2024',
+          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+        {
+          tag: 'Club Lead',
+          title: 'Open Source Drive 2023',
+          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'https://via.placeholder.com/300x160',
+          ],
+        },
+      ].map((item, i) => (
+        <MarqueeCard key={i} item={item} />
+      ))}
+
     </div>
-
-    {/* CARD 2 */}
-    <div className="marquee-card">
-      <img src="/img2.jpg" alt="" />
-      <div className="marquee-text">IoT System</div>
-    </div>
-
-    {/* CARD 3 */}
-    <div className="marquee-card">
-      <img src="/img3.jpg" alt="" />
-      <div className="marquee-text">AI Model</div>
-    </div>
-
-    {/* CARD 4 */}
-    <div className="marquee-card">
-      <img src="/img4.jpg" alt="" />
-      <div className="marquee-text">Web App</div>
-    </div>
-
-    {/* CARD 5 */}
-    <div className="marquee-card">
-      <img src="/img5.jpg" alt="" />
-      <div className="marquee-text">Cloud Project</div>
-    </div>
-
-    {/* DUPLICATE (for smooth infinite loop) */}
-    <div className="marquee-card">
-      <img src="/img1.jpg" alt="" />
-      <div className="marquee-text">React Projects</div>
-    </div>
-
-    <div className="marquee-card">
-      <img src="/img2.jpg" alt="" />
-      <div className="marquee-text">IoT System</div>
-    </div>
-
   </div>
-</div>
+</section>
+
+
+
       {/* SKILLS SECTION */}
       <section id="skills" className="skills reveal from-left">
         <h2><WaveText text="Skills" /></h2>
 
         <div className="skills-grid">
-          <div className="skill-card">React</div>
-          <div className="skill-card">Python</div>
-          <div className="skill-card">JavaScript</div>
+          <div className="skill-card">python</div>
           <div className="skill-card">SQL</div>
-          <div className="skill-card">MongoDB</div>
-          <div className="skill-card">Cloud</div>
+          <div className="skill-card">AWS Cloud</div>
+          <div className="skill-card">PHP</div>
+          <div className="skill-card">PHPMyAdmin</div>
+          <div className="skill-card">Machine Learning</div>
+          <div className="skill-card">NLP</div>
+          <div className="skill-card">React</div>
+          <div className="skill-card">REST API</div>
+          <div className="skill-card">Git</div>
+          <div className="skill-card">Github</div>
+          <div className="skill-card">Flutter</div>
+          <div className="skill-card">Android Development</div>
+
         </div>
       </section>
 
 
       
  
-      <section id="experience" className="experience reveal">  
+     <section id="experience" className="experience reveal">
+  <h2><WaveText text="Experience" /></h2>
 
-<h2><WaveText text="Experience" /></h2>
-<div className="timeline">
+  <div className="timeline">
 
-  {/* CARD 1 */}
-  <div className="timeline-item left">
-    <div className="exp-card">
-      <div className="exp-image">Image</div>
+    <ExpCard
+      side="left"
+      title="Frontend Internship"
+      desc="Worked on building responsive UI using React and modern web technologies. Contributed to real-world projects."
+      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+    />
 
-      <div className="exp-content">
-        <h3>Frontend Internship</h3>
-        <p>
-          Worked on building responsive UI using React and modern
-          web technologies. Contributed to real-world projects.
-        </p>
+    <ExpCard
+      side="right"
+      title="Backend Internship"
+      desc="Developed APIs and worked with databases while learning scalable backend architecture."
+      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+    />
 
-        <button className="exp-btn">View Details</button>
-      </div>
-    </div>
+    <ExpCard
+      side="left"
+      title="Cloud Internship"
+      desc="Worked with cloud services and deployment pipelines while learning infrastructure management."
+      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+    />
+
+    <ExpCard
+      side="right"
+      title="Research Internship"
+      desc="Conducted research on machine learning models and published findings in a conference paper."
+      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+    />
+
   </div>
-
-  {/* CARD 2 */}
-  <div className="timeline-item right">
-    <div className="exp-card ">
-      <div className="exp-image">Image</div>
-
-      <div className="exp-content">
-        <h3>Backend Internship</h3>
-        <p>
-          Developed APIs and worked with databases while learning
-          scalable backend architecture.
-        </p>
-
-        <button className="exp-btn">View Details</button>
-      </div>
-    </div>
-  </div>
-
-  {/* CARD 3 */}
-  <div className="timeline-item left">
-    <div className="exp-card ">
-      <div className="exp-image">Image</div>
-
-      <div className="exp-content">
-        <h3>Cloud Internship</h3>
-        <p>
-          Worked with cloud services and deployment pipelines while
-          learning infrastructure management.
-        </p>
-
-        <button className="exp-btn">View Details</button>
-      </div>
-    </div>
-  </div>
-
-  {/* CARD 4 */}
-  <div className="timeline-item right">
-    <div className="exp-card ">
-      <div className="exp-image">Image</div>
-
-      <div className="exp-content">
-        <h3>Research Internship</h3>
-        <p>
-          Conducted research on machine learning models and published
-          findings in a conference paper.
-        </p>
-
-        <button className="exp-btn">View Details</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
 </section>
-
 
 
 
@@ -535,68 +665,46 @@ function App() {
 
 
 
-<section id="publications" className="publications reveal">            {/* ← right */}
+<section id="publications" className="publications reveal">
+  <h2><WaveText text="Publications" /></h2>
 
-<h2><WaveText text="Publications" /></h2>
+  <div className="publication-list">
 
-<div className="publication-list">
+    <PubCard
+      title="Research Paper Title One"
+      desc="Short description about your research publication. You can mention the topic, conference, or journal where the paper was published."
+      link="#"
+      images={[
+        '/easygolife_certificate.png',
+        '/easygolife_certificate.png',
+      ]}
+    />
 
-{/* PUBLICATION 1 */}
-<div className="publication-card ">
-<div className="pub-image">Image</div>
+    <PubCard
+      title="Research Paper Title Two"
+      desc="Description about the methodology, research domain, and what contribution you made in the research."
+      link="#"
+      images={[
+        '/easygolife_certificate.png',
+        '/easygolife_certificate.png',
+      ]}
+    />
 
-<div className="pub-content">
-<h3>Research Paper Title</h3>
-<p>
-Short description about your research publication. 
-You can mention the topic, conference, or journal where 
-the paper was published.
-</p>
+    <PubCard
+      title="Research Paper Title Three"
+      desc="Brief explanation about the problem statement and solution proposed in the research paper."
+      link="#"
+      images={[
+        '/easygolife_certificate.png',
+        '/easygolife_certificate.png',
+      ]}
+    />
 
-<button>View Paper</button>
-</div>
-
-</div>
-
-
-{/* PUBLICATION 2 */}
-<div className="publication-card ">
-
-<div className="pub-image">Image</div>
-
-<div className="pub-content">
-<h3>Research Paper Title</h3>
-<p>
-Description about the methodology, research domain,
-and what contribution you made in the research.
-</p>
-
-<button>View Paper</button>
-</div>
-
-</div>
-
-
-{/* PUBLICATION 3 */}
-<div className="publication-card ">
-
-<div className="pub-image">Image</div>
-
-<div className="pub-content">
-<h3>Research Paper Title</h3>
-<p>
-Brief explanation about the problem statement and 
-solution proposed in the research paper.
-</p>
-
-<button>View Paper</button>
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
+
+
+
 <section id="achievements" className="achievements reveal from-left"> 
 
 <h2><WaveText text="Achievements" /></h2>
@@ -657,109 +765,6 @@ top positions at inter-college events.
 
 </section>
 
-{/* LEADERSHIP */}
-<section id="leadership" className="leadership reveal from-left">
-  <h2><WaveText text="Leadership & Events" /></h2>
-  <p className="section-subtitle" style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px' }}>
-    Events I have organised and led
-  </p>
-
-  <div className="leadership-marquee-wrapper">
-    <div className="leadership-marquee-track">
-
-      {[
-        {
-          tag: 'Event Organiser',
-          title: 'National Tech Symposium 2024',
-          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
-         
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        {
-          tag: 'Club Lead',
-          title: 'Hackathon — HackFest 2024',
-          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        {
-          tag: 'Event Organiser',
-          title: 'Tech Talk Series 2024',
-          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        {
-          tag: 'Club Lead',
-          title: 'Open Source Drive 2023',
-          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        /* DUPLICATES for infinite loop */
-        {
-          tag: 'Event Organiser',
-          title: 'National Tech Symposium 2024',
-          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        {
-          tag: 'Club Lead',
-          title: 'Hackathon — HackFest 2024',
-          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        {
-          tag: 'Event Organiser',
-          title: 'Tech Talk Series 2024',
-          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        {
-          tag: 'Club Lead',
-          title: 'Open Source Drive 2023',
-          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-      ].map((item, i) => (
-        <MarqueeCard key={i} item={item} />
-      ))}
-
-    </div>
-  </div>
-</section>
 
 <section id="contact" className="contact-section reveal">
 

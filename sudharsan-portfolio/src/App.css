@@ -121,9 +121,9 @@ html, body {
 }
 
 .sidebar img{
-  width:200px;
-  height:200px;
-  border-radius:50%;
+  width:250px;
+  height:350px;
+  border-radius:10%;
   margin-bottom:20px;
   border:4px solid #38bdf8;
 }
@@ -203,7 +203,7 @@ html, body {
 
 .skill-card:hover{
   transform:translateY(-6px);
-  background:#38bdf8;
+  background:#657efa;
 }
 /* EXPERIENCE SECTION */
 
@@ -247,7 +247,7 @@ html, body {
 
 .exp-card{
   background:#1e293b;
-  width:600px;
+  width:800px;
   display:flex;
   gap:20px;
   padding:20px;
@@ -263,15 +263,7 @@ html, body {
 
 /* IMAGE */
 
-.exp-image{
-  width:120px;
-  height:120px;
-  background:#374151;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+
 
 
 /* CONTENT */
@@ -301,6 +293,91 @@ html, body {
 
 .exp-btn:hover{
   background:#0284c7;
+}
+
+/* EXPERIENCE CAROUSEL */
+.exp-image-carousel {
+  position: relative;
+  width: 350px;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #374151;
+}
+
+.exp-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exp-carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.exp-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PREV NEXT BUTTONS */
+.exp-car-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s, background 0.3s;
+  z-index: 2;
+}
+
+.exp-card:hover .exp-car-btn {
+  opacity: 1;
+}
+
+.exp-car-btn:hover {
+  background: rgba(56, 189, 248, 0.4);
+}
+
+.exp-car-btn.prev { left: 4px; }
+.exp-car-btn.next { right: 4px; }
+
+/* DOTS */
+.exp-car-dots {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.exp-car-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.exp-car-dot.active {
+  background: #38bdf8;
+  transform: scale(1.3);
 }
 
 /* PROJECT SECTION */
@@ -506,15 +583,7 @@ box-shadow:10px 8px 0px rgb(191 219 254);
 
 /* IMAGE */
 
-.pub-image{
-width:180px;
-height:140px;
-background:#4c3a6d;
-border-radius:8px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+
 
 
 /* CONTENT */
@@ -548,6 +617,91 @@ transition:0.3s;
 
 .pub-content button:hover{
 background:#8b5cf6;
+}
+
+/* PUBLICATION CAROUSEL */
+.pub-carousel {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #4c3a6d;
+}
+
+.pub-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pub-carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.pub-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BUTTONS */
+.pub-car-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s, background 0.3s;
+  z-index: 2;
+}
+
+.publication-card:hover .pub-car-btn {
+  opacity: 1;
+}
+
+.pub-car-btn:hover {
+  background: rgba(167, 139, 250, 0.5);
+}
+
+.pub-car-btn.prev { left: 4px; }
+.pub-car-btn.next { right: 4px; }
+
+/* DOTS */
+.pub-car-dots {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+
+.pub-car-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.pub-car-dot.active {
+  background: #a78bfa;
+  transform: scale(1.3);
 }
 
 /* ACHIEVEMENTS SECTION */
@@ -1060,84 +1214,7 @@ html {
   }
 }
 
-/* MARQUEE CONTAINER */
 
-.marquee-container{
-  overflow:hidden;
-  width:100%;
-  margin-top:40px;
-  position:relative;
-}
-
-/* TRACK (ANIMATION) */
-
-.marquee-track{
-  display:flex;
-  gap:30px;
-  width:max-content;
-  animation:scrollRight 18s linear infinite;
-}
-
-/* ANIMATION → LEFT TO RIGHT */
-
-@keyframes scrollRight{
-  0%{
-    transform:translateX(-50%);
-  }
-  100%{
-    transform:translateX(0%);
-  }
-}
-
-/* CARD */
-
-.marquee-card{
-  position:relative;
-  width:300px;
-  height:260px;
-  border-radius:12px;
-  overflow:hidden;
-  flex-shrink:0;
-  background:#1e293b;
-  transition:0.3s;
-  box-shadow:10px 8px 0px rgb(191 219 254);
-}
-
-/* IMAGE */
-
-.marquee-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:0.9s;
-}
-
-/* TEXT (BOTTOM LEFT) */
-
-.marquee-text{
-  position:absolute;
-  bottom:10px;
-  left:12px;
-  color:white;
-  font-size:16px;
-  font-weight:600;
-  background:rgba(0,0,0,0.5);
-  padding:4px 10px;
-  border-radius:6px;
-}
-
-/* HOVER EFFECT */
-
-.marquee-card:hover{
-  transform:scale(1.05);
-}
-
-.marquee-card:hover img{
-  transform:scale(1.1);
-}
-.marquee-container:hover .marquee-track{
-  animation-play-state:paused;
-}
 
 /* ── LEADERSHIP SECTION ── */
 .leadership {
