@@ -1431,7 +1431,7 @@ html {
   overflow: hidden;
   width: 100%;
   /* fade edges */
-  -webkit-mask-image: linear-gradient(
+  /*-webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
     black 10%,
@@ -1444,7 +1444,7 @@ html {
     black 10%,
     black 90%,
     transparent 100%
-  );
+  );*/
 }
 
 .leadership-marquee-track {

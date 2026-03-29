@@ -373,56 +373,58 @@ function App() {
       {[
         {
           tag: '',
-          title: 'National Tech Symposium 2024',
-          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
+          title: 'Ideathon',
+          desc: 'Participated in the national level paper presentation event, presenting research on Deep Learning framework for Satellite Images.',
          
           images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
+            'certificates/ideathon.png',
+            
           ],
         },
         {
-          tag: 'Club Lead',
-          title: 'Hackathon — HackFest 2024',
+          tag: 'Sr.Logistics Coordinator',
+          title: 'CSI-SIES GST',
           desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
           
           images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
+            'certificates/CSI Certificate.png',
+            'about/csi.jpg',
+            
+          ],
+        },
+        {
+          tag: 'Participant',
+          title: 'ELEVATE 2025',
+          desc: 'ELEVETE 2025 was event where after clearing Aptitude, GD, Technical rounds got an Internship.',
+          
+          images: [
+            'about/elevate.jpg',
             'https://via.placeholder.com/300x160',
           ],
         },
         {
-          tag: 'Event Organiser',
-          title: 'Tech Talk Series 2024',
-          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
+          tag: '',
+          title: 'TEXTURE 2026 National Level Paper Presentation',
+          desc: 'Participated in the national level paper presentation event, presenting research on Deep Learning framework for Satellite Images.',
           
           images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
-        {
-          tag: 'Club Lead',
-          title: 'Open Source Drive 2023',
-          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
+            'about/texture1.jpg',
+            'about/texture2.jpg',
+            'certificates/texture image.png',
+            'about/texture3.jpg',
           ],
         },
         /* DUPLICATES for infinite loop */
         {
-          tag: 'Event Organiser',
-          title: 'National Tech Symposium 2024',
-          desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
+          tag: 'Cognition 2025',
+          title: 'Project Presentation Competition',
+          desc: 'Presented our team project Society Administration Platform Which got a great appreciation from the judges and won the 1st place in the competition.',
           
           images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
+            'about/cognition1.jpg',
+            'about/cognition2.jpg',
+            'about/cognition3.jpg',
+            'certificates/cognition.png',
           ],
         },
         {
