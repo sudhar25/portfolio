@@ -347,9 +347,11 @@ function App() {
         <div className="content">
           <h1 className="flip-text">Hello 👋</h1>
           <p>
-            This is where your main portfolio introduction will go.
-            You can later write about your projects, experience,
-            and what technologies you enjoy working with.
+            Software Engineer skilled in building reliable, scalable applications across 
+            frontend and backend environments. Proficient in Python, PHP, JavaScript, React, SQL, and cloud technologies, with experience 
+            designing secure architectures, developing APIs, and optimizing system performance. Adept at improving workflow efficiency
+            by up to 60% through automation and clean code practices. Strong in problem-solving, collaborative development, and delivering 
+            features end-to-end within agile teams.
           </p>
 
           
@@ -370,7 +372,7 @@ function App() {
 
       {[
         {
-          tag: 'Event Organiser',
+          tag: '',
           title: 'National Tech Symposium 2024',
           desc: 'Led a team of 20 volunteers to organise a national-level tech symposium with speakers and workshops.',
          
@@ -675,7 +677,7 @@ function App() {
       desc="Short description about your research publication. You can mention the topic, conference, or journal where the paper was published."
       link="#"
       images={[
-        '/easygolife_certificate.png',
+        '/avishkar/Avishkar1.jpeg',
         '/easygolife_certificate.png',
       ]}
     />
