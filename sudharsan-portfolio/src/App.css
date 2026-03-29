@@ -1241,8 +1241,8 @@ html {
   background: #1e293b;
   border-radius: 16px;
   overflow: hidden;
-  height:30;
-  width:20;
+  height:80;
+  width:100;
   border: 1px solid rgba(56, 189, 248, 0.12);
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
               box-shadow 0.4s ease;

@@ -393,8 +393,8 @@ function App() {
           ],
         },
         {
-          tag: 'Participant',
-          title: 'ELEVATE 2025',
+          tag: 'ELEVATE 2025',
+          title: 'Participated',
           desc: 'ELEVETE 2025 was event where after clearing Aptitude, GD, Technical rounds got an Internship.',
           
           images: [
@@ -403,8 +403,8 @@ function App() {
           ],
         },
         {
-          tag: '',
-          title: 'TEXTURE 2026 National Level Paper Presentation',
+          tag: 'TEXTURE 2026',
+          title: 'National Level Paper Presentation',
           desc: 'Participated in the national level paper presentation event, presenting research on Deep Learning framework for Satellite Images.',
           
           images: [
@@ -474,7 +474,8 @@ function App() {
 
         <div className="skills-grid">
           <div className="skill-card">python</div>
-          <div className="skill-card">SQL</div>
+          <div className="skill-card">MySQL</div>
+          <div className="skill-card">PostgreSQL</div>
           <div className="skill-card">AWS Cloud</div>
           <div className="skill-card">PHP</div>
           <div className="skill-card">PHPMyAdmin</div>
@@ -486,6 +487,7 @@ function App() {
           <div className="skill-card">Github</div>
           <div className="skill-card">Flutter</div>
           <div className="skill-card">Android Development</div>
+          <div className="skill-card">JSON</div>
 
         </div>
       </section>
@@ -500,30 +502,37 @@ function App() {
 
     <ExpCard
       side="left"
-      title="Frontend Internship"
-      desc="Worked on building responsive UI using React and modern web technologies. Contributed to real-world projects."
-      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+      title="WEB DEVELOPER"
+      desc="EasyGoLife Pvt. Ltd
+
+•	Key Skills: PHP, SQL, Front-End Development, HTML, CSS, Bootstrap
+
+•	Led a team of three interns to build a full-stack society management platform. 
+•	Contributed to frontend design, backend logic using PHP, and database structuring with MySQL.
+•	Managed task allocation ensured timely delivery, and integrated key modules including complaints, maintenance, visitor approvals, and member management.
+"
+      images={['experience/easygolife_certificate.png', '/easygolife_certificate.png']}
     />
 
     <ExpCard
       side="right"
-      title="Backend Internship"
+      title="Software Engineer Intern"
       desc="Developed APIs and worked with databases while learning scalable backend architecture."
-      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+      images={['', '/easygolife_certificate.png']}
     />
 
     <ExpCard
       side="left"
       title="Cloud Internship"
       desc="Worked with cloud services and deployment pipelines while learning infrastructure management."
-      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+      images={['experience/IFuture.JPG']}
     />
 
     <ExpCard
       side="right"
-      title="Research Internship"
+      title="WEB DEVELOPER"
       desc="Conducted research on machine learning models and published findings in a conference paper."
-      images={['/easygolife_certificate.png', '/easygolife_certificate.png']}
+      images={['experience/sdp.png']}
     />
 
   </div>
