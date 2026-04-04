@@ -59,13 +59,22 @@ function PubCard({ images, title, desc, link }) {
 }
 
 
-function ExpCard({ images, title, desc, side }) {
+function ExpCard({ images, title, desc, side, link }) {
   const [current, setCurrent] = useState(0)
+  const currentRef = useRef(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const next = currentRef.current === images.length - 1 ? 0 : currentRef.current + 1
+      currentRef.current = next
+      setCurrent(next)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [images.length])
 
   return (
     <div className={`timeline-item ${side}`}>
       <div className="exp-card">
-
         <div className="exp-image-carousel">
           <div
             className="exp-carousel-track"
@@ -77,22 +86,28 @@ function ExpCard({ images, title, desc, side }) {
               </div>
             ))}
           </div>
-
           <button
             className="exp-car-btn prev"
-            onClick={() => setCurrent(c => c === 0 ? images.length - 1 : c - 1)}
+            onClick={() => {
+              const p = currentRef.current === 0 ? images.length - 1 : currentRef.current - 1
+              currentRef.current = p
+              setCurrent(p)
+            }}
           >‹</button>
           <button
             className="exp-car-btn next"
-            onClick={() => setCurrent(c => c === images.length - 1 ? 0 : c + 1)}
+            onClick={() => {
+              const n = currentRef.current === images.length - 1 ? 0 : currentRef.current + 1
+              currentRef.current = n
+              setCurrent(n)
+            }}
           >›</button>
-
           <div className="exp-car-dots">
             {images.map((_, i) => (
               <span
                 key={i}
                 className={`exp-car-dot ${i === current ? 'active' : ''}`}
-                onClick={() => setCurrent(i)}
+                onClick={() => { currentRef.current = i; setCurrent(i) }}
               />
             ))}
           </div>
@@ -100,15 +115,26 @@ function ExpCard({ images, title, desc, side }) {
 
         <div className="exp-content">
           <h3>{title}</h3>
-          <p>{desc}</p>
-          <button className="exp-btn">View Details</button>
+
+          {/* DESCRIPTION — renders bullet points cleanly */}
+          <div className="exp-desc">
+            {desc.split('\n').filter(line => line.trim() !== '').map((line, i) => (
+              <p key={i} className={line.trim().startsWith('•') ? 'exp-bullet' : 'exp-company'}>
+                {line.trim()}
+              </p>
+            ))}
+          </div>
+
+          {/* BUTTON WITH LINK */}
+          <a href={link || '#'} target="_blank" rel="noreferrer">
+            <button className="exp-btn">View Certificate ↗</button>
+          </a>
         </div>
 
       </div>
     </div>
   )
 }
-
 function MarqueeCard({ item }) {
   const [current, setCurrent] = useState(0)
 
@@ -176,11 +202,10 @@ function LeadershipCard({ tag, title, desc, skills, images, link }) {
     setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [images.length])
+  const timer = setInterval(() => {
+    setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+  }, 3000)
+}, [images.length])
 
   return (
     <div className="leadership-card">
@@ -308,26 +333,37 @@ function WaveText({ text }) {
 }
 function App() {
   useScrollReveal() 
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
     
     <div id="about" className="page">
 
       {/* NAVBAR */}
-      <nav className="navbar">
-        <div className="logo">Sudharsan Nadar</div>
+      {/* NAVBAR */}
+<nav className="navbar">
+  <div className="logo">Sudharsan Nadar</div>
 
-        <ul className="nav-links">
-  <li onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>About Me</li>
-  <li onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>Projects</li>
-  <li onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}>Skills</li>
-  <li onClick={() => document.getElementById('achievements').scrollIntoView({ behavior: 'smooth' })}>Achievements</li>
-  <li onClick={() => document.getElementById('publications').scrollIntoView({ behavior: 'smooth' })}>Publications</li>
-  <li onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}>Experience</li>
-  <li onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Contact</li>
-  <li onClick={() => document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' })}>Blog</li>
-</ul>
-      </nav>
+  {/* HAMBURGER */}
+  <div
+    className={`hamburger ${menuOpen ? 'open' : ''}`}
+    onClick={() => setMenuOpen(!menuOpen)}
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
+  <ul className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
+    <li onClick={() => { document.getElementById('about').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>About Me</li>
+    <li onClick={() => { document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Projects</li>
+    <li onClick={() => { document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Skills</li>
+    <li onClick={() => { document.getElementById('achievements').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Achievements</li>
+    <li onClick={() => { document.getElementById('publications').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Publications</li>
+    <li onClick={() => { document.getElementById('experience').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Experience</li>
+    <li onClick={() => { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Contact</li>
+    <li onClick={() => { document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Blog</li>
+  </ul>
+</nav>
       {/* MAIN SECTION */}
       <div id="about" className="container">
 
@@ -501,22 +537,21 @@ function App() {
   <div className="timeline">
 
     <ExpCard
-      side="left"
-      title="WEB DEVELOPER"
-      desc="EasyGoLife Pvt. Ltd
-
-•	Key Skills: PHP, SQL, Front-End Development, HTML, CSS, Bootstrap
-
-•	Led a team of three interns to build a full-stack society management platform. 
-•	Contributed to frontend design, backend logic using PHP, and database structuring with MySQL.
-•	Managed task allocation ensured timely delivery, and integrated key modules including complaints, maintenance, visitor approvals, and member management.
-"
-      images={['experience/easygolife_certificate.png', '/easygolife_certificate.png']}
-    />
+  side="left"
+  title="WEB DEVELOPER"
+  link="https://www.linkedin.com/posts/sudharsan-nadar-645145313_internshipcompleted-easygolife-chsmitraproject-ugcPost-7334814738842877952-i3rj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE-TpVUBa0s91Ghx7Mxq8gqSaUWTgnfTBUI"
+  desc="EasyGoLife Pvt. Ltd
+ Key Skills: PHP, SQL, Front-End Development, HTML, CSS, Bootstrap
+ Led a team of three interns to build a full-stack society management platform.
+ Contributed to frontend design, backend logic using PHP, and database structuring with MySQL.
+ Managed task allocation, ensured timely delivery, and integrated key modules including complaints, maintenance, visitor approvals, and member management."
+  images={['/easygolife_certificate.png']}
+/>
 
     <ExpCard
       side="right"
       title="Software Engineer Intern"
+      link="https://your-certificate-link.com"
       desc="Developed APIs and worked with databases while learning scalable backend architecture."
       images={['', '/easygolife_certificate.png']}
     />
@@ -524,6 +559,7 @@ function App() {
     <ExpCard
       side="left"
       title="Cloud Internship"
+      link="https://your-certificate-link.com"
       desc="Worked with cloud services and deployment pipelines while learning infrastructure management."
       images={['experience/IFuture.JPG']}
     />
@@ -531,6 +567,7 @@ function App() {
     <ExpCard
       side="right"
       title="WEB DEVELOPER"
+      link="https://your-certificate-link.com"
       desc="Conducted research on machine learning models and published findings in a conference paper."
       images={['experience/sdp.png']}
     />
@@ -688,8 +725,8 @@ function App() {
       desc="Short description about your research publication. You can mention the topic, conference, or journal where the paper was published."
       link="#"
       images={[
-        '/avishkar/Avishkar1.jpeg',
-        '/easygolife_certificate.png',
+        '/certificates/IEEE_paper.png',
+        
       ]}
     />
 
@@ -698,8 +735,7 @@ function App() {
       desc="Description about the methodology, research domain, and what contribution you made in the research."
       link="#"
       images={[
-        '/easygolife_certificate.png',
-        '/easygolife_certificate.png',
+        '/certificates/journal.png',
       ]}
     />
 
@@ -728,7 +764,7 @@ function App() {
 <div className="achievement-card ">
 
 <div className="image-group">
-<img src="https://via.placeholder.com/300" />
+<img src="certificates/hackathon.jpg" />
 <img src="https://via.placeholder.com/300" />
 <img src="https://via.placeholder.com/300" />
 </div>
@@ -745,9 +781,10 @@ among multiple participating teams.
 <div className="achievement-card ">
 
 <div className="image-group">
-<img src="https://via.placeholder.com/300" />
-<img src="https://via.placeholder.com/300" />
-<img src="https://via.placeholder.com/300" />
+<img src="certificates/Avishkar1.jpeg" />
+<img src="certificates/Avishkar2.png" />
+<img src="about/avishkar1.jpg"/>
+
 </div>
 
 <p>
