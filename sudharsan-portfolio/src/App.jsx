@@ -408,9 +408,9 @@ function App() {
 
       {[
         {
-          tag: '',
-          title: 'Ideathon',
-          desc: 'Participated in the national level paper presentation event, presenting research on Deep Learning framework for Satellite Images.',
+          tag: 'Ideathon',
+          title: 'Idea presentation competition',
+          desc: 'Participated and presented our innovative idea on a AIML based project"',
          
           images: [
             'certificates/ideathon.png',
@@ -464,14 +464,14 @@ function App() {
           ],
         },
         {
-          tag: 'Club Lead',
-          title: 'Hackathon — HackFest 2024',
-          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
+          tag: 'Innovatiions 2026',
+          title: 'Project presentation competition',
+          desc: '',
           
           images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
+            'about/innovation1.jpg',
+            'about/innovation2.jpg',
+            'certificates/innovation.png',
           ],
         },
         {
