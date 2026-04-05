@@ -111,7 +111,7 @@ html, body {
   padding:30px;
   border-radius:20px;
   text-align:center;
-  width:300px;
+  width:500px;
   transition:0.3s;
   color:white;
 }
@@ -121,8 +121,8 @@ html, body {
 }
 
 .sidebar img{
-  width:250px;
-  height:350px;
+  width:450px;
+  height:550px;
   border-radius:10%;
   margin-bottom:20px;
   border:4px solid #38bdf8;

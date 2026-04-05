@@ -374,6 +374,20 @@ function App() {
            <a href="/resume.pdf" target="_blank">
     <button className="resume-btn">View Resume</button>
   </a>
+  <div className="social-icons">
+    <a href="https://github.com/" target="_blank" className="github"
+       title="GitHub">
+      <i className="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/" target="_blank" className="linkedin"
+       title="LinkedIn">
+      <i className="fab fa-linkedin"></i>
+    </a>
+    <a href="https://instagram.com/" target="_blank" className="instagram"
+       title="Instagram">
+      <i className="fab fa-instagram"></i>
+    </a>
+  </div>
         </div>
         
 
@@ -398,9 +412,9 @@ function App() {
 
 {/* LEADERSHIP */}
 <section id="leadership" className="leadership reveal from-left">
-  <h2><WaveText text="Leadership & Events" /></h2>
+  <h2><WaveText text="Events, Leadership and Participations" /></h2>
   <p className="section-subtitle" style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px' }}>
-    Events I have organised and led
+    Events I have organised and led and participated in during my college days. This includes hackathons, workshops, paper presentations and more.
   </p>
 
   <div className="leadership-marquee-wrapper">
