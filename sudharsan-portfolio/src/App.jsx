@@ -6,6 +6,36 @@ import "./App.css"
 import { useEffect, useRef } from 'react'
 
 
+
+function VisitorCount() {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    /* get existing count from localStorage */
+    const stored = parseInt(localStorage.getItem('portfolioViews') || '0')
+    /* increment on each visit */
+    const newCount = stored + 1
+    localStorage.setItem('portfolioViews', newCount)
+    /* animate count up */
+    let start = 0
+    const end = newCount
+    const duration = 1500
+    const step = Math.ceil(end / (duration / 16))
+    const timer = setInterval(() => {
+      start += step
+      if (start >= end) {
+        setCount(end)
+        clearInterval(timer)
+      } else {
+        setCount(start)
+      }
+    }, 16)
+    return () => clearInterval(timer)
+  }, [])
+
+  return <span>{count.toLocaleString()}</span>
+}
+
 function PubCard({ images, title, desc, link }) {
   const [current, setCurrent] = useState(0)
 
@@ -452,6 +482,19 @@ function App() {
             'https://via.placeholder.com/300x160',
           ],
         },
+
+        {
+          tag: 'Avishkar 2025',
+          title: 'Represented SIES GST at Avishkar Project presentation',
+          desc: 'Presented our research project on a Deep Learning framework for Satellite Image Analysis at the prestigious Avishkar Research Convention, representing SIES GST and competing against top research projects from universities across Maharashtra.',
+          
+          images: [
+            'about/avishkar4.png',
+            'about/avishkar2.jpg',
+            'certificates/Avishkar1.jpeg',
+            'about/avishkar3.jpg',
+          ],
+        },
         {
           tag: 'TEXTURE 2026',
           title: 'National Level Paper Presentation',
@@ -489,25 +532,16 @@ function App() {
           ],
         },
         {
-          tag: 'Event Organiser',
-          title: 'Tech Talk Series 2024',
-          desc: 'Coordinated a monthly tech talk series inviting industry professionals to speak to students.',
+          tag: 'Hackathon',
+          title: 'AR/VR Hackathon',
+          desc: 'Participated in a 24-hour AR/VR hackathon where we developed an immersive virtual reality experience using Lens Studio and secured 3rd place among 50+ teams.',
           
           images: [
             'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
+            'certificates/hackathon.jpg',
           ],
         },
-        {
-          tag: 'Club Lead',
-          title: 'Open Source Drive 2023',
-          desc: 'Led an open source contribution drive encouraging students to contribute to GitHub projects.',
-          
-          images: [
-            'https://via.placeholder.com/300x160',
-            'https://via.placeholder.com/300x160',
-          ],
-        },
+        
       ].map((item, i) => (
         <MarqueeCard key={i} item={item} />
       ))}
@@ -559,22 +593,30 @@ function App() {
  Led a team of three interns to build a full-stack society management platform.
  Contributed to frontend design, backend logic using PHP, and database structuring with MySQL.
  Managed task allocation, ensured timely delivery, and integrated key modules including complaints, maintenance, visitor approvals, and member management."
-  images={['/easygolife_certificate.png']}
+  images={['experience/easygolife_certificate.png']}
 />
 
     <ExpCard
       side="right"
       title="Software Engineer Intern"
       link="https://your-certificate-link.com"
-      desc="Developed APIs and worked with databases while learning scalable backend architecture."
+      desc="•	Key Skills: PHP, JSON, Front-End Development, XAMPP, PhpMyAdmin
+•	Developed an intelligent FAQ chatbot for the college admission portal using PHP with similarity and Levenshtein-based matching.
+•	Built a mobile-responsive interface and integrated it seamlessly into the website footer.
+•	Improved user experience by delivering accurate, instant, link-supported responses for admission-related queries.
+"
       images={['', '/easygolife_certificate.png']}
     />
 
     <ExpCard
       side="left"
       title="Cloud Internship"
-      link="https://your-certificate-link.com"
-      desc="Worked with cloud services and deployment pipelines while learning infrastructure management."
+      link="https://www.linkedin.com/posts/sudharsan-nadar-645145313_internshipexperience-cloudcomputing-microsoftservers-share-7287818201445384192-wFMb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE-TpVUBa0s91Ghx7Mxq8gqSaUWTgnfTBUI"
+      desc="●	Key Skills: Cloud Computing, Microsoft Server Management
+●	Completed a cloud-focused internship centered on Microsoft Server Management and private cloud environments.
+●	Gained hands-on experience in managing cloud infrastructure, configuring servers, and deploying offline applications. 
+●	Recognized for strong problem-solving, consistency, and professional discipline.
+"
       images={['experience/IFuture.JPG']}
     />
 
@@ -601,7 +643,12 @@ function App() {
     <LeadershipCard
       tag="Web App"
       title="Project One"
-      desc="Short description about the project will go here."
+      desc="•	Engineered a full-stack society management and maintenance billing platform, streamlining resident operations by automating 50–60% of manual workflows across billing, complaints, visitor approvals, and member records.
+•	Implemented secure billing logic with automated invoice generation and Razorpay payment integration, reducing payment delays and enabling real-time transaction verification with low-latency callbacks.
+•	Optimized MySQL queries and database schema, improving data retrieval speeds by ~35% and enhancing stability for multi-module access.
+•	Developed modular PHP backend components for CRUD operations, role-based access, and session-secured actions, increasing maintainability and reducing code redundancy.
+•	Designed responsive UI flows using HTML, CSS, Bootstrap, and JavaScript, improving user interaction smoothness and mobile compatibility.
+."
       date="Jan 2024"
       attendees="Solo"
       skills={['React', 'Node.js']}
@@ -799,6 +846,7 @@ among multiple participating teams.
 <img src="certificates/Avishkar2.png" />
 <img src="about/avishkar1.jpg"/>
 
+
 </div>
 
 <p>
@@ -878,30 +926,82 @@ top positions at inter-college events.
 
 </div>
 
-{/* FEEDBACK CARD */}
+<div className="feedback-card">
 
-<div className="feedback-card ">
+  {/* VISITOR COUNTER */}
+  <div className="visitor-counter">
+    <div className="visitor-icon">👁️</div>
+    <div className="visitor-info">
+      <span className="visitor-number">
+        <VisitorCount />
+      </span>
+      <span className="visitor-label">Portfolio Views</span>
+    </div>
+  </div>
 
-<h3>Feedback</h3>
+  <div className="feedback-divider" />
 
-<p>How would you rate this portfolio?</p>
+  {/* MAIL SECTION */}
+  <h3>Send me a Message</h3>
+  <p className="feedback-sub">Fill in your details and I'll get back to you</p>
 
-<div className="rating">
+  <div className="mail-form">
 
-<span>⭐</span>
-<span>⭐</span>
-<span>⭐</span>
-<span>⭐</span>
-<span>⭐</span>
+    {/* YOUR EMAIL — prefilled */}
+    <div className="mail-field">
+      <span className="mail-label">To</span>
+      <span className="mail-value">your@email.com</span>
+    </div>
 
+    {/* THEIR EMAIL */}
+    <div className="mail-input-group">
+      <label>Your Email</label>
+      <input
+        type="email"
+        id="senderEmail"
+        placeholder="sender@example.com"
+      />
+    </div>
+
+    {/* SUBJECT */}
+    <div className="mail-input-group">
+      <label>Subject</label>
+      <input
+        type="text"
+        id="mailSubject"
+        placeholder="Hiring / Collaboration / Query"
+      />
+    </div>
+
+    {/* MESSAGE */}
+    <div className="mail-input-group">
+      <label>Message</label>
+      <textarea
+        id="mailMessage"
+        placeholder="Write your message here..."
+        rows={4}
+      />
+    </div>
+
+    {/* SEND BUTTON */}
+    <button
+      className="mail-send-btn"
+      onClick={() => {
+        const email   = document.getElementById('senderEmail').value
+        const subject = document.getElementById('mailSubject').value
+        const message = document.getElementById('mailMessage').value
+        if (!email || !subject || !message) {
+          alert('Please fill all fields!')
+          return
+        }
+        window.location.href = `mailto:your@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${email}\n\n${message}`)}`
+      }}
+    >
+      Send Message ✉️
+    </button>
+
+  </div>
 </div>
-
-<textarea placeholder="Write your feedback here..."></textarea>
-
-<button>Submit Feedback</button>
-
-</div>
-
 </div>
 
 </section>

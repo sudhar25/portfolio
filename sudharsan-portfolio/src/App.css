@@ -707,74 +707,79 @@ background:#8b5cf6;
 }
 
 /* ACHIEVEMENTS SECTION */
-
-.achievements{
-padding:80px;
+.achievements {
+  padding: 80px;
 }
 
-.achievements h2{
-text-align:center;
-font-size:36px;
-margin-bottom:50px;
-color:white;
+.achievements h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: white;
 }
-
 
 /* GRID */
-
-.achievements-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:40px;
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
-
 
 /* CARD */
-
-.achievement-card{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-transition:0.3s;
-box-shadow:10px 8px 0px rgb(191 219 254);
+.achievement-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  box-shadow: 10px 8px 0px rgb(191 219 254);
 }
 
+.achievement-card:hover {
+  transform: translateY(-6px);
+}
 
 /* IMAGE GROUP */
-
-.image-group{
-display:flex;
-height:180px;
-overflow:hidden;
-border-radius:8px;
-margin-bottom:15px;
+.image-group {
+  display: flex;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  gap: 3px;              /* ← small gap between images */
 }
-
 
 /* IMAGES */
-
-.image-group img{
-flex:1;
-object-fit:cover;
-transition:0.4s;
-cursor:pointer;
+.image-group img {
+  flex: 1;
+  min-width: 0;          /* ← FIX: prevents flex children from overflowing */
+  object-fit: cover;
+  transition: flex 0.4s ease;   /* ← FIX: transition only flex, not all */
+  cursor: pointer;
+  border-radius: 4px;
 }
-
 
 /* HERO EXPAND EFFECT */
-
-.image-group img:hover{
-flex:3;
+.image-group img:hover {
+  flex: 3;
 }
-
 
 /* DESCRIPTION */
-
-.achievement-card p{
-font-size:14px;
-color:#cbd5f5;
+.achievement-card p {
+  font-size: 14px;
+  color: #cbd5f5;
+  line-height: 1.6;
 }
 
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .achievements { padding: 50px 24px; }
+  .achievements-grid { grid-template-columns: 1fr; }
+  .image-group { height: 150px; }
+}
 /* CONTACT SECTION */
 
 .contact-section{
@@ -953,68 +958,189 @@ gap:40px;
 }
 
 /* FEEDBACK CARD */
-
-.feedback-card{
-background:#1e293b;
-padding:30px;
-border-radius:10px;
-box-shadow:10px 8px 0px rgb(191 219 254);
-transition:0.3s;
-color:white;
+.feedback-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 10px 8px 0px rgb(191 219 254);
+  transition: 0.3s;
+  color: white;
 }
 
-.feedback-card:hover{
-transform:translateY(-6px);
+.feedback-card:hover {
+  transform: translateY(-6px);
 }
 
-.feedback-card h3{
-margin-bottom:20px;
-color:white;
+/* VISITOR COUNTER */
+.visitor-counter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 8px;
 }
 
-
-/* RATING */
-
-.rating{
-font-size:24px;
-margin-bottom:15px;
+.visitor-icon {
+  font-size: 32px;
+  animation: pulse 2s ease-in-out infinite;
 }
 
-.rating span{
-cursor:pointer;
-transition:0.2s;
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.15); }
 }
 
-.rating span:hover{
-transform:scale(1.2);
+.visitor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-
-/* TEXTAREA */
-
-.feedback-card textarea{
-width:100%;
-height:80px;
-margin-bottom:15px;
-padding:10px;
-border-radius:6px;
-border:none;
+.visitor-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #38bdf8;
+  line-height: 1;
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -1px;
 }
 
-
-/* BUTTON */
-
-.feedback-card button{
-padding:8px 18px;
-background:#38bdf8;
-border:none;
-border-radius:6px;
-cursor:pointer;
-transition:0.3s;
+.visitor-label {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.feedback-card button:hover{
-background:#0284c7;
+.feedback-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 20px 0;
+}
+
+/* MAIL FORM */
+.feedback-card h3 {
+  margin-bottom: 6px;
+  color: white;
+  font-size: 18px;
+}
+
+.feedback-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.mail-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* TO FIELD */
+.mail-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.mail-label {
+  color: #64748b;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 40px;
+}
+
+.mail-value {
+  color: #38bdf8;
+  font-size: 13px;
+}
+
+/* INPUT GROUPS */
+.mail-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mail-input-group label {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.mail-input-group input,
+.mail-input-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  resize: none;
+}
+
+.mail-input-group input:focus,
+.mail-input-group textarea:focus {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.08);
+}
+
+.mail-input-group input::placeholder,
+.mail-input-group textarea::placeholder {
+  color: #334155;
+}
+
+/* SEND BUTTON */
+.mail-send-btn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.mail-send-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-20deg);
+}
+
+.mail-send-btn:hover {
+  background: rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+  color: white;
+}
+
+.mail-send-btn:hover::before {
+  animation: shineSwipe 0.55s ease forwards;
 }
 
 .footer{
