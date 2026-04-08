@@ -1579,7 +1579,8 @@ html {
   display: flex;
   gap: 24px;
   width: max-content;
-  animation: leadershipScroll 18s linear infinite;
+  animation: leadershipScroll 25s linear infinite;
+  will-change: transform ;
   /* remove the hover pause from track */
 }
 
@@ -1847,4 +1848,40 @@ html {
     color: #38bdf8;
   }
 
+}
+
+.readmore-wrapper {
+  margin-bottom: 14px;
+}
+
+.desc-text {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.desc-bullet {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 4px;
+  padding-left: 4px;
+}
+
+.readmore-btn {
+  background: transparent;
+  border: none;
+  color: #38bdf8;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 4px;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.readmore-btn:hover {
+  color: white;
 }
