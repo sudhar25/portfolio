@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react'
 
 
 
-function ReadMore({ text, maxLines = 3 }) {
+function ReadMore({ text, maxLines = 1 }) {
   const [expanded, setExpanded] = useState(false)
 
   const lines = text
