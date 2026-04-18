@@ -7,42 +7,21 @@ import { useEffect, useRef } from 'react'
 
 
 
-function ReadMore({ text, maxLines = 1 }) {
+function ReadMore({ text, maxLines = 3 }) {
   const [expanded, setExpanded] = useState(false)
-
-  const lines = text
-    .split('\n')
-    .map(l => l.trim())
-    .filter(l => l !== '')
-
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l !== '')
   const preview = lines.slice(0, maxLines)
-  const rest    = lines.slice(maxLines)
-
+  const rest = lines.slice(maxLines)
   return (
     <div className="readmore-wrapper">
-      {/* always show first 3 lines */}
       {preview.map((line, i) => (
-        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
-          {line}
-        </p>
+        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>{line}</p>
       ))}
-
-      {/* show rest only when expanded */}
       {expanded && rest.map((line, i) => (
-        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
-          {line}
-        </p>
+        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>{line}</p>
       ))}
-
-      {/* show button only if there are hidden lines */}
       {rest.length > 0 && (
-        <button
-          className="readmore-btn"
-          onClick={(e) => {
-            e.stopPropagation()
-            setExpanded(!expanded)
-          }}
-        >
+        <button className="readmore-btn" onClick={(e) => { e.stopPropagation(); setExpanded(!expanded) }}>
           {expanded ? '▲ Read Less' : '▼ Read More'}
         </button>
       )}
@@ -318,7 +297,7 @@ function LeadershipCard({ tag, title, desc, skills, images, link }) {
         {tag && <span className="leadership-tag">{tag}</span>}
 
         <h3>{title}</h3>
-        <ReadMore text={desc} maxLines={2} />
+        <ReadMore text={desc} maxLines={1} />
 
         {skills && skills.length > 0 && (
           <div className="leadership-skills">
@@ -680,9 +659,10 @@ function App() {
 
 <section id="projects" className="projects reveal from-left">
   <h2><WaveText text="Projects" /></h2>
-      
-  <div className="projects-grid">
-
+    <div className="projects-scroll-wrapper">
+    <div className="projects-scroll-track">
+  
+  
     <LeadershipCard
       tag="Web App"
       title="Project One"
@@ -814,7 +794,8 @@ function App() {
         'https://via.placeholder.com/600x220',
       ]}
     />
-
+  
+  </div>
   </div>
 </section>
 

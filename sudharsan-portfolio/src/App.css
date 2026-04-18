@@ -398,11 +398,7 @@ color:white;
 
 /* GRID */
 
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:40px;
-}
+
 
 
 /* CARD */
@@ -479,21 +475,9 @@ background:#0284c7;
   color: white;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 50px;
-}
 
-@media (max-width: 1024px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
 
-@media (max-width: 768px) {
-  .projects { padding: 50px 24px; }
-  .projects-grid { grid-template-columns: 1fr; }
-}
+
 
 
 /* VIEW DETAILS BUTTON inside leadership/project card */
@@ -1884,4 +1868,202 @@ html {
 
 .readmore-btn:hover {
   color: white;
+}
+
+
+/* ── PROJECTS HORIZONTAL SCROLL ── */
+.projects {
+  padding: 80px;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.projects-scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 16px;
+  /* hide scrollbar but keep scroll */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56,189,248,0.3) transparent;
+}
+
+.projects-scroll-wrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+.projects-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projects-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(56,189,248,0.3);
+  border-radius: 10px;
+}
+
+.projects-scroll-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  padding: 10px 4px 10px 4px;
+}
+
+/* each card fixed width — 3 visible at once on desktop */
+.projects-scroll-track .leadership-card {
+  width: calc((100vw - 160px - 56px) / 3);
+  min-width: 280px;
+  max-width: 420px;
+  flex-shrink: 0;
+}
+
+/* ── READMORE ── */
+.readmore-wrapper { margin-bottom: 14px; }
+
+.desc-text {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.desc-bullet {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 4px;
+  padding-left: 4px;
+}
+
+.readmore-btn {
+  background: transparent;
+  border: none;
+  color: #38bdf8;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 4px;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.readmore-btn:hover { color: white; }
+
+/* ══════════════════════════════════════
+   FULL WEBSITE RESPONSIVENESS
+══════════════════════════════════════ */
+
+/* ── TABLET 1024px ── */
+@media (max-width: 1024px) {
+
+  /* HERO */
+  .container { flex-direction: column; padding: 60px 40px; gap: 40px; }
+  .sidebar   { width: 100%; max-width: 340px; margin: 0 auto; }
+  .content   { max-width: 100%; text-align: center; }
+
+  /* PROJECTS */
+  .projects-scroll-track .leadership-card {
+    width: calc((100vw - 80px - 28px) / 2);
+  }
+
+  /* EXPERIENCE */
+  .timeline { grid-template-columns: 1fr 1fr; }
+
+  /* ACHIEVEMENTS */
+  .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* PUBLICATIONS */
+  .publication-card { width: 100%; }
+}
+
+/* ── MOBILE 768px ── */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 14px 20px;
+  }
+
+  /* HERO */
+  .container  { padding: 40px 20px; gap: 30px; }
+  .sidebar    { width: 100%; }
+  .content h1 { font-size: 36px; }
+  .content p  { font-size: 16px; }
+
+  /* orbit wrapper */
+  .orbit-wrapper { width: 180px; height: 180px; }
+
+  /* SKILLS — 3 per row on mobile */
+  .skills { padding: 50px 20px; }
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 100%;
+  }
+  .skill-card { padding: 14px 8px; font-size: 12px; }
+  .skill-icon { font-size: 22px; }
+
+  /* EXPERIENCE */
+  .experience { padding: 50px 20px; }
+  .timeline   { grid-template-columns: 1fr; gap: 20px; }
+  .exp-card   { flex-direction: column; width: 100%; }
+  .exp-image-carousel { width: 100%; height: 200px; }
+
+  /* PROJECTS */
+  .projects { padding: 50px 20px; }
+  .projects-scroll-track .leadership-card {
+    width: calc(100vw - 60px);
+    max-width: 100%;
+  }
+
+  /* PUBLICATIONS */
+  .publications { padding: 50px 20px; }
+  .publication-card {
+    flex-direction: column;
+    width: 100%;
+  }
+  .pub-carousel {
+    width: 100%;
+    height: 200px;
+  }
+
+  /* ACHIEVEMENTS */
+  .achievements       { padding: 50px 20px; }
+  .achievements-grid  { grid-template-columns: 1fr; }
+  .image-group        { height: 150px; }
+
+  /* LEADERSHIP MARQUEE */
+  .leadership              { padding: 50px 20px; }
+  .leadership-marquee-card { width: 260px; }
+  .marquee-card-carousel   { height: 160px; }
+
+  /* CONTACT */
+  .contact-section    { padding: 50px 20px; }
+  .contact-container  { grid-template-columns: 1fr; gap: 20px; }
+
+  /* CAROUSEL BUTTONS — bigger tap area on mobile */
+  .carousel-btn { width: 38px; height: 38px; font-size: 18px; }
+  .mq-btn       { width: 30px; height: 30px; }
+
+  /* GENERAL CARDS */
+  .leadership-card { width: 100%; }
+}
+
+/* ── SMALL MOBILE 480px ── */
+@media (max-width: 480px) {
+
+  .content h1             { font-size: 28px; }
+  .skills-grid            { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .skill-card             { padding: 12px 6px; font-size: 11px; }
+  .nav-links li           { font-size: 14px; padding: 10px 12px; }
+  .projects-scroll-track .leadership-card { width: calc(100vw - 40px); }
+  .carousel               { height: 180px; }
+  .achievements-grid      { grid-template-columns: 1fr; }
+  h2                      { font-size: 28px; }
 }
