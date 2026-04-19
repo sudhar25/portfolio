@@ -387,8 +387,8 @@ function App() {
   useScrollReveal() 
   const [menuOpen, setMenuOpen] = useState(false)
   return (
-    
-    <div id="about" className="page">
+  
+    <div className="page">
 
       {/* NAVBAR */}
       {/* NAVBAR */}
@@ -416,6 +416,7 @@ function App() {
     <li onClick={() => { document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Blog</li>
   </ul>
 </nav>
+ 
       {/* MAIN SECTION */}
       <div id="about" className="container">
 
@@ -460,7 +461,8 @@ function App() {
         </div>
 
       </div>
-
+      
+    
 
 {/* LEADERSHIP */}
 <section id="leadership" className="leadership reveal from-left">
@@ -486,7 +488,7 @@ function App() {
         {
           tag: 'Sr.Logistics Coordinator',
           title: 'CSI-SIES GST',
-          desc: 'Organised and mentored participants in a 24-hour hackathon. Handled logistics and sponsor communication.',
+          desc: 'Managed logistics for technical events, workshops, and seminars. Handled vendor coordination, resource planning, and on-ground operations to ensure smooth execution and successful student-led initiatives',
           
           images: [
             'certificates/CSI Certificate.png',
@@ -497,7 +499,7 @@ function App() {
         {
           tag: 'ELEVATE 2025',
           title: 'Participated',
-          desc: 'ELEVETE 2025 was event where after clearing Aptitude, GD, Technical rounds got an Internship.',
+          desc: 'Participated in ELEVETE 2025 event where after clearing Aptitude, GD, Technical rounds got an Internship.',
           
           images: [
             'about/elevate.jpg',
@@ -533,7 +535,7 @@ function App() {
         {
           tag: 'Cognition 2025',
           title: 'Project Presentation Competition',
-          desc: 'Presented our team project Society Administration Platform Which got a great appreciation from the judges and won the 1st place in the competition.',
+          desc: 'Presented our team project Society Administration Platform Which got a great appreciation from the judges in the competition.',
           
           images: [
             'about/cognition1.jpg',
@@ -543,9 +545,9 @@ function App() {
           ],
         },
         {
-          tag: 'Innovatiions 2026',
+          tag: 'Innovatiions 2026', 
           title: 'Project presentation competition',
-          desc: '',
+          desc: 'Participated in Innovation of CSI SIES GST a project presentation competition and got a valuable appreciation from the judges for the innovative idea of the project',
           
           images: [
             'about/innovation1.jpg',
@@ -662,10 +664,28 @@ function App() {
     <div className="projects-scroll-wrapper">
     <div className="projects-scroll-track">
   
-  
+    <LeadershipCard
+      tag="AIML Deep Learning"
+      title=" Cropsure: A Deep Learning Framework for Crop Damage Assessment and Agricultural
+Insurance Support"
+      desc="Developed an intelligent system that uses satellite imagery (Sentinel-1, Sentinel-2, Landsat-8) and deep learning (NASNet + Vision
+Transformer) to detect crop damage and automate insurance claim verification. Implemented a TypeScript-based web platform with a
+Python backend that integrates Google Earth Engine for satellite data processing, NDVI/SAR feature extraction, disaster detection, and
+automated compensation estimation. The system enables farmers to submit claims digitally and supports scalable, data-driven
+agricultural insurance assessment."
+      date=""
+      attendees="Team of 4"
+      skills={['Python', 'Deep Learning', 'Postgre SQL', 'Typscript', 'AIML', 'Data Processing', 'FinTech', 'NAS-Net', 'VIT']}
+      link="https://github.com/arasu30/greenfield-shield"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
     <LeadershipCard
       tag="Web App"
-      title="Project One"
+      title="CHSMitra - Society Management Platform"
       
       desc="•	Engineered a full-stack society management and maintenance billing platform, streamlining resident operations by automating 50–60% of manual workflows across billing, complaints, visitor approvals, and member records.
 •	Implemented secure billing logic with automated invoice generation and Razorpay payment integration, reducing payment delays and enabling real-time transaction verification with low-latency callbacks.
@@ -673,24 +693,10 @@ function App() {
 •	Developed modular PHP backend components for CRUD operations, role-based access, and session-secured actions, increasing maintainability and reducing code redundancy.
 •	Designed responsive UI flows using HTML, CSS, Bootstrap, and JavaScript, improving user interaction smoothness and mobile compatibility.
 ."
-      date="Jan 2024"
-      attendees="Solo"
-      skills={['React', 'Node.js']}
-      link="https://github.com/your-project-link"
-      images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-      ]}
-    />
-
-    <LeadershipCard
-      tag="Full Stack"
-      title="Project Two"
-      desc="Short description about the project will go here."
-      date="Feb 2024"
+      date=""
       attendees="Team of 3"
-      skills={['Python', 'MongoDB']}
-      link="https://github.com/your-project-link"
+      skills={['PHP', 'SQL', 'Bootstrap', 'Razorpay API', 'MySQL Optimization', 'Responsive Design', 'Session Management',]}
+      link="https://github.com/sudhar25/Chsmitra"
       images={[
         'https://via.placeholder.com/600x220',
         'https://via.placeholder.com/600x220',
@@ -698,55 +704,21 @@ function App() {
     />
 
     <LeadershipCard
-      tag="Frontend"
-      title="Project Three"
-      desc="Short description about the project will go here."
-      date="Mar 2024"
-      attendees="Solo"
-      skills={['React', 'Tailwind']}
-      link="https://github.com/your-project-link"
-      images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-      ]}
-    />
-
-    <LeadershipCard
-      tag="Backend"
-      title="Project Four"
-      desc="Short description about the project will go here."
-      date="Apr 2024"
-      attendees="Team of 2"
-      skills={['Node.js', 'SQL']}
-      link="https://github.com/your-project-link"
-      images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-      ]}
-    />
-
-    <LeadershipCard
-      tag="ML"
-      title="Project Five"
-      desc="Short description about the project will go here."
-      date="May 2024"
-      attendees="Solo"
-      skills={['Python', 'TensorFlow']}
-      link="https://github.com/your-project-link"
-      images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
-      ]}
-    />
-
-    <LeadershipCard
-      tag="Cloud"
-      title="Project Six"
-      desc="Short description about the project will go here."
-      date="Jun 2024"
+      tag="AI"
+      title="Aura Voice: Automatic Pronunciation Error Detector"
+      desc=" Developed an AI-based pronunciation evaluation system that analyzes user speech, compares it with correct phoneme patterns, and provides 
+real-time corrective feedback for English learning. 
+ Implemented speech preprocessing and feature extraction using Librosa, SoundFile, NumPy, and SciPy, enabling accurate detection of pitch, 
+MFCCs, and acoustic deviations. Processed audio inputs with SpeechRecognition. 
+ Used NLTK and Levenshtein distance algorithms to perform string similarity, phonetic comparison, and error scoring for mispronounced 
+words. 
+ Built RESTful APIs with Flask 3.1, integrated CORS handling, and used Flask-SQLAlchemy for database operations and structured audio 
+feedback history. 
+ Integrated with Flutter frontend, for audio upload, error visualization, and interactive pronunciation correction for learners."
+      date=""
       attendees="Team of 4"
-      skills={['AWS', 'Docker']}
-      link="https://github.com/your-project-link"
+      skills={['Python', 'SQL', 'Flask', 'Librosa', 'SpeechRecognition', 'NLP', 'Levenshtein Distance', 'Flutter', 'REST API', 'CORS']}
+      link="https://github.com/sudhar25/AuraVoice"
       images={[
         'https://via.placeholder.com/600x220',
         'https://via.placeholder.com/600x220',
@@ -754,13 +726,20 @@ function App() {
     />
 
     <LeadershipCard
-      tag="Mobile"
-      title="Project Seven"
-      desc="Short description about the project will go here."
-      date="Jul 2024"
-      attendees="Solo"
-      skills={['React Native']}
-      link="https://github.com/your-project-link"
+      tag="Web App with cloud implementation"
+      title="Attendance Tracker using AWS Cloud & Cognito"
+      desc=" Developed backend logic using PHP to handle subject creation, attendance marking, percentage calculations, and validation flows with secure 
+session management. 
+ Designed and structured the database using MySQL, implementing relational tables for users, subjects, and attendance records with optimized 
+queries for fast read/write operations. 
+ Integrated AWS Cognito authentication, using hosted UI and token verification to enable secure login, protect routes, and maintain user-level 
+data isolation. 
+ Implemented dynamic attendance dashboards using JavaScript to generate real-time percentage charts and progress summaries for each 
+subject. Built a fully responsive frontend using HTML, CSS, and Bootstrap to streamline user interaction."
+      date=""
+      attendees="Solo Project"
+      skills={['PHP', 'MySQL', 'AWS Cognito', 'JavaScript', 'Bootstrap', 'Session Management', 'Database Optimization', 'Data Visualization']}
+      link="https://github.com/sudhar25/Attendance-manager"
       images={[
         'https://via.placeholder.com/600x220',
         'https://via.placeholder.com/600x220',
@@ -768,13 +747,37 @@ function App() {
     />
 
     <LeadershipCard
-      tag="API"
-      title="Project Eight"
-      desc="Short description about the project will go here."
-      date="Aug 2024"
+      tag="NLP Based"
+      title="Aathichudi Tamil phrase learning application"
+      desc=" Developed a Python full-stack pronunciation learning platform enabling users to view Tamil phrases, listen to reference audio, record their 
+own pronunciation, and receive instant correctness feedback. 
+ Built a full-stack pronunciation evaluation system with a React frontend (Web Audio API, Axios, modular components) and a 
+FastAPI backend supporting audio uploads, real-time scoring, and structured REST responses. 
+ Implemented audio preprocessing and analysis pipelines using Pydub, ffmpeg-python, SpeechRecognition, and Levenshtein distance to 
+normalize audio, transcribe speech, and compute phonetic similarity. 
+ Optimized backend performance with Uvicorn workers, enabling low-latency feedback and a seamless “correct / try again” learning flow 
+across the integrated React–FastAPI architecture. "
+      date=""
+      attendees="Team of 3"
+      skills={['Python', 'SQL','NLP','React','FastAPI','Pydub', 'SpeechRecognition', 'Uvicorn']}
+      link="https://github.com/sudhar25/Voice-based-learning-app"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+    <LeadershipCard
+      tag="AI Chatbot"
+      title="College Admission FAQ Chatbot"
+      desc="Developed a Python Flask-based FAQ chatbot using SentenceTransformers for semantic similarity matching.
+Implemented spell correction, text preprocessing, and keyword fallback search to improve query accuracy.
+Used JSON-based FAQ dataset with cosine similarity to return relevant answers automatically.
+ "
+      date=""
       attendees="Team of 2"
-      skills={['Express', 'REST']}
-      link="https://github.com/your-project-link"
+      skills={['Python', 'TensorFlow', 'SentenceTransformer', 'Json', 'FastAPI']}
+      link="https://github.com/sudhar25/semantic_chatbot"
       images={[
         'https://via.placeholder.com/600x220',
         'https://via.placeholder.com/600x220',
@@ -782,13 +785,37 @@ function App() {
     />
 
     <LeadershipCard
-      tag="Open Source"
-      title="Project Nine"
-      desc="Short description about the project will go here."
-      date="Sep 2024"
-      attendees="Solo"
-      skills={['JavaScript', 'GitHub']}
-      link="https://github.com/your-project-link"
+      tag="Android Application"
+      title="Farm Land Mapping Application"
+      desc="Built Flutter mobile app for real-time GPS-based farm boundary mapping with polygon area calculation
+Designed FastAPI REST backend with JWT authentication and geospatial farm data storage using PostGIS
+Integrated NeonDB (serverless PostgreSQL) as central database for multi-farmer data isolation
+Connected backend to NASNet/ViT ML model for satellite-based crop disaster detection using stored GPS coordinates"
+      date=""
+      attendees="Team of 4"
+      skills={['PostgreSQL', 'Dart', 'Flutter', 'JWT Authentication', 'FastAPI', 'REST API']}
+      link="https://github.com/sudhar25/Mapping-app"
+      images={[
+        'https://via.placeholder.com/600x220',
+        'https://via.placeholder.com/600x220',
+      ]}
+    />
+
+    <LeadershipCard
+      tag="Android application"
+      title="Weather & Air Quality App"
+      desc=" Developed a cross-platform mobile application using Flutter, enabling users to fetch real-time weather data and AQI details based on GPS 
+coordinates or selected cities. 
+ Integrated OpenWeatherMap APIs for temperature, humidity, pollution index, and particulate data, with robust JSON parsing and error
+handled network calls and trigger dynamic API requests for accurate environmental metrics. 
+ Built a reactive UI using Flutter widgets, displaying AQI labels (Good, Moderate, Poor, etc.) with dynamic theme updates driven by air quality 
+and weather conditions a structured application logic in Dart with clean state management. 
+ Optimized app performance with efficient API handling, caching strategies, and resource-aware widget rendering for smooth user experience 
+across devices. "
+      date=""
+      attendees="Team of 3"
+      skills={['Flutter', 'Dart','Json', 'API handling']}
+      link="https://github.com/sudhar25/Weather-app"
       images={[
         'https://via.placeholder.com/600x220',
         'https://via.placeholder.com/600x220',
@@ -856,8 +883,8 @@ function App() {
 </div>
 
 <p>
-Won a national level hackathon and reached the final round
-among multiple participating teams.
+<b>2nd Runner</b> up in an ARVR hackathon Conducted by KJ Somaiya College Developed a 
+Interective Ar WEB application for a art gallery.
 </p>
 
 </div>
@@ -875,14 +902,14 @@ among multiple participating teams.
 </div>
 
 <p>
-Presented research work at a technical conference and received
-recognition for innovative problem solving.
+Presented research work at a technical event Organized by 
+<b>University of Mumbai</b> and Reached til Final round representing out college.
 </p>
 
 </div>
 
 
-{/* CARD 3 */}
+/* CARD 3
 <div className="achievement-card ">
 
 <div className="image-group">
@@ -899,7 +926,7 @@ top positions at inter-college events.
 </div>
 
 </div>
-
+*/
 </section>
 
 
@@ -1034,6 +1061,7 @@ top positions at inter-college events.
   <p>© 2026 Sudharsan Nadar | All Rights Reserved</p>
 </footer>
     </div>
+
   )
 }
 
