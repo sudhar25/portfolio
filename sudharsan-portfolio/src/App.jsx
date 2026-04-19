@@ -386,6 +386,7 @@ function WaveText({ text }) {
 function App() {
   useScrollReveal() 
   const [menuOpen, setMenuOpen] = useState(false)
+  const [formSent,  setFormSent]  = useState(false)
   return (
   
     <div className="page">
@@ -428,15 +429,15 @@ function App() {
     <button className="resume-btn">View Resume</button>
   </a>
   <div className="social-icons">
-    <a href="https://github.com/" target="_blank" className="github"
+    <a href="https://github.com/sudhar25" target="_blank" className="github"
        title="GitHub">
       <i className="fab fa-github"></i>
     </a>
-    <a href="https://linkedin.com/" target="_blank" className="linkedin"
+    <a href="https://www.linkedin.com/in/sudharsan-nadar-645145313/" target="_blank" className="linkedin"
        title="LinkedIn">
       <i className="fab fa-linkedin"></i>
     </a>
-    <a href="https://instagram.com/" target="_blank" className="instagram"
+    <a href="https://www.instagram.com/me_sudhar_?igsh=MTRqcHRrbzc2MDY5bQ==" target="_blank" className="instagram"
        title="Instagram">
       <i className="fab fa-instagram"></i>
     </a>
@@ -450,11 +451,15 @@ function App() {
         <div className="content">
           <h1 className="flip-text">Hello 👋</h1>
           <p>
-            Software Engineer skilled in building reliable, scalable applications across 
-            frontend and backend environments. Proficient in Python, PHP, JavaScript, React, SQL, and cloud technologies, with experience 
-            designing secure architectures, developing APIs, and optimizing system performance. Adept at improving workflow efficiency
-            by up to 60% through automation and clean code practices. Strong in problem-solving, collaborative development, and delivering 
-            features end-to-end within agile teams.
+            I'm Sudharsan Nadar, a final-year Computer Engineering student from Mumbai with a deep interest in artificial intelligence, data systems, and building things that actually 
+            work in the real world. I gravitate toward problems that sit at the intersection of engineering and intelligence  where clean code meets meaningful output  whether 
+            that's training a deep learning model, designing a data pipeline, or architecting a backend that handles real user load.<br></br>
+<br></br>I'm someone who learns best by building. Most of what I know came from picking a problem, figuring out what I didn't know, and working through 
+it  from publishing ML research at IEEE to shipping full-stack products used by real users. I care deeply about the quality and thoughtfulness
+behind what I create, not just whether it runs.<br></br> 
+<br></br>Outside of tech, I enjoy taking on responsibility I've led logistics for large technical events, coordinated teams across internships, and 
+represented my college at research competitions. I'm currently looking for opportunities in ML engineering, data analytics, agentic AI, or Python development 
+where I can keep growing, contribute meaningfully from day one, and work alongside people who care about what they're building as much as I do.
           </p>
 
           
@@ -468,7 +473,7 @@ function App() {
 <section id="leadership" className="leadership reveal from-left">
   <h2><WaveText text="Events, Leadership and Participations" /></h2>
   <p className="section-subtitle" style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px' }}>
-    Events I have organised and led and participated in during my college days. This includes hackathons, workshops, paper presentations and more.
+    Events I have organised, led and participated in during my college days. This includes hackathons, workshops, paper presentations and more.
   </p>
 
   <div className="leadership-marquee-wrapper">
@@ -582,6 +587,9 @@ function App() {
 
         <div className="skills-grid">
           <div className="skill-card">python</div>
+          <div className="skill-card">Data Processing</div>
+          <div className="skill-card">Database Optimization</div>
+          <div className="skill-card">Data visualization</div>
           <div className="skill-card">MySQL</div>
           <div className="skill-card">PostgreSQL</div>
           <div className="skill-card">AWS Cloud</div>
@@ -596,6 +604,9 @@ function App() {
           <div className="skill-card">Flutter</div>
           <div className="skill-card">Android Development</div>
           <div className="skill-card">JSON</div>
+          <div className="skill-card">JWT</div>
+          <div className="skill-card">Session Management</div>
+          <div className="skill-card">Deep Learning</div>
 
         </div>
       </section>
@@ -834,8 +845,12 @@ across devices. "
   <div className="publication-list">
 
     <PubCard
-      title="Research Paper Title One"
-      desc="Short description about your research publication. You can mention the topic, conference, or journal where the paper was published."
+      title=" Cropsure: A Deep Learning Framework for Crop Damage Assessment and Agricultural Insurance
+Support"
+      desc=" 2026 IEEE Contemporary Computing Innovations Conference (CCIC 2026) 
+      Proposed CropSure, a deep learning–based framework for crop damage assessment using satellite imagery and AI models to detect
+and estimate agricultural losses. The system analyzes environmental data to support faster damage evaluation and decision-making for
+farmers and insurance authorities."
       link="#"
       images={[
         '/certificates/IEEE_paper.png',
@@ -844,23 +859,17 @@ across devices. "
     />
 
     <PubCard
-      title="Research Paper Title Two"
-      desc="Description about the methodology, research domain, and what contribution you made in the research."
+      title="AuraVoice – Automatic Pronunciation Error Detection and Correction Application"
+      desc=" International Journal of Creative Research Thoughts (IJCRT).
+      Developed AuraVoice, an application that uses speech recognition techniques to detect pronunciation errors and provide automatic
+correction, helping improve language learning and spoken communication."
       link="#"
       images={[
         '/certificates/journal.png',
       ]}
     />
 
-    <PubCard
-      title="Research Paper Title Three"
-      desc="Brief explanation about the problem statement and solution proposed in the research paper."
-      link="#"
-      images={[
-        '/easygolife_certificate.png',
-        '/easygolife_certificate.png',
-      ]}
-    />
+    
 
   </div>
 </section>
@@ -884,7 +893,7 @@ across devices. "
 
 <p>
 <b>2nd Runner</b> up in an ARVR hackathon Conducted by KJ Somaiya College Developed a 
-Interective Ar WEB application for a art gallery.
+Interactive AR WEB application for a art gallery.
 </p>
 
 </div>
@@ -903,30 +912,12 @@ Interective Ar WEB application for a art gallery.
 
 <p>
 Presented research work at a technical event Organized by 
-<b>University of Mumbai</b> and Reached til Final round representing out college.
+<b>University of Mumbai</b> and Reached till Final round representing our college.
 </p>
 
 </div>
-
-
-/* CARD 3
-<div className="achievement-card ">
-
-<div className="image-group">
-<img src="https://via.placeholder.com/300" />
-<img src="https://via.placeholder.com/300" />
-<img src="https://via.placeholder.com/300" />
 </div>
 
-<p>
-Participated in multiple technical competitions and secured
-top positions at inter-college events.
-</p>
-
-</div>
-
-</div>
-*/
 </section>
 
 
@@ -951,25 +942,25 @@ top positions at inter-college events.
   </a>
 
   {/* Email */}
-  <a href="mailto:example@email.com" className="contact-item">
+  <a href="mailto:sudharsannadar1@email.com" className="contact-item">
     <div className="contact-item-icon">✉️</div>
     <div className="contact-item-text">
       <span className="contact-item-label">Email</span>
-      <span className="contact-item-value">example@email.com</span>
+      <span className="contact-item-value">sudharsannadar1@email.com</span>
     </div>
   </a>
 
   {/* Social Icons */}
   <div className="social-icons">
-    <a href="https://github.com/" target="_blank" className="github"
+    <a href="https://github.com/sudhar25" target="_blank" className="github"
        title="GitHub">
       <i className="fab fa-github"></i>
     </a>
-    <a href="https://linkedin.com/" target="_blank" className="linkedin"
+    <a href="https://www.linkedin.com/in/sudharsan-nadar-645145313/" target="_blank" className="linkedin"
        title="LinkedIn">
       <i className="fab fa-linkedin"></i>
     </a>
-    <a href="https://instagram.com/" target="_blank" className="instagram"
+    <a href="https://www.instagram.com/me_sudhar_?igsh=MTRqcHRrbzc2MDY5bQ==" target="_blank" className="instagram"
        title="Instagram">
       <i className="fab fa-instagram"></i>
     </a>
@@ -984,34 +975,70 @@ top positions at inter-college events.
   <div className="visitor-counter">
     <div className="visitor-icon">👁️</div>
     <div className="visitor-info">
-      <span className="visitor-number">
-        <VisitorCount />
-      </span>
+      <span className="visitor-number"><VisitorCount /></span>
       <span className="visitor-label">Portfolio Views</span>
     </div>
   </div>
 
   <div className="feedback-divider" />
 
-  {/* MAIL SECTION */}
   <h3>Send me a Message</h3>
   <p className="feedback-sub">Fill in your details and I'll get back to you</p>
 
-  <div className="mail-form">
+  {/* NETLIFY FORM */}
+  <form
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    className="mail-form"
+    onSubmit={(e) => {
+      e.preventDefault()
+      const form = e.target
+      const data = new FormData(form)
 
-    {/* YOUR EMAIL — prefilled */}
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString(),
+      })
+        .then(() => {
+          setFormSent(true)
+          form.reset()
+        })
+        .catch(() => alert('Something went wrong. Please try again.'))
+    }}
+  >
+
+    {/* hidden fields required by Netlify */}
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="bot-field" />
+
+    {/* TO field — your email shown */}
     <div className="mail-field">
       <span className="mail-label">To</span>
-      <span className="mail-value">your@email.com</span>
+      <span className="mail-value">sudharsannadar1@gmail.com</span>
     </div>
 
-    {/* THEIR EMAIL */}
+    {/* NAME */}
     <div className="mail-input-group">
-      <label>Your Email</label>
+      <label>Your Name</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="John Doe"
+        required
+      />
+    </div>
+
+    {/* EMAIL */}
+    <div className="mail-input-group">
+      <label>Your gmail</label>
       <input
         type="email"
-        id="senderEmail"
+        name="email"
         placeholder="sender@example.com"
+        required
       />
     </div>
 
@@ -1020,8 +1047,9 @@ top positions at inter-college events.
       <label>Subject</label>
       <input
         type="text"
-        id="mailSubject"
+        name="subject"
         placeholder="Hiring / Collaboration / Query"
+        required
       />
     </div>
 
@@ -1029,30 +1057,26 @@ top positions at inter-college events.
     <div className="mail-input-group">
       <label>Message</label>
       <textarea
-        id="mailMessage"
+        name="message"
         placeholder="Write your message here..."
         rows={4}
+        required
       />
     </div>
 
-    {/* SEND BUTTON */}
-    <button
-      className="mail-send-btn"
-      onClick={() => {
-        const email   = document.getElementById('senderEmail').value
-        const subject = document.getElementById('mailSubject').value
-        const message = document.getElementById('mailMessage').value
-        if (!email || !subject || !message) {
-          alert('Please fill all fields!')
-          return
-        }
-        window.location.href = `mailto:your@email.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${email}\n\n${message}`)}`
-      }}
-    >
-      Send Message ✉️
-    </button>
+    {/* SUBMIT */}
+    {!formSent ? (
+      <button type="submit" className="mail-send-btn">
+        Send Message ✉️
+      </button>
+    ) : (
+      <div className="feedback-success">
+        ✅ Message sent! I'll get back to you soon.
+      </div>
+    )}
 
-  </div>
+  </form>
+
 </div>
 </div>
 
