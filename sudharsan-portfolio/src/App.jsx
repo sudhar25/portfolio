@@ -689,8 +689,10 @@ agricultural insurance assessment."
       skills={['Python', 'Deep Learning', 'Postgre SQL', 'Typscript', 'AIML', 'Data Processing', 'FinTech', 'NAS-Net', 'VIT']}
       link="https://github.com/arasu30/greenfield-shield"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/cropsure.png',
+        '/project/cropsure1.png',
+        '/project/cropsure2.png',
+        '/project/cropsure3.png',
       ]}
     />
 
@@ -807,8 +809,9 @@ Connected backend to NASNet/ViT ML model for satellite-based crop disaster detec
       skills={['PostgreSQL', 'Dart', 'Flutter', 'JWT Authentication', 'FastAPI', 'REST API']}
       link="https://github.com/sudhar25/Mapping-app"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/map.jpeg',
+        '/project/map1.jpeg',
+        '/project/map2.jpeg',
       ]}
     />
 
