@@ -691,79 +691,7 @@ background:#8b5cf6;
 }
 
 /* ACHIEVEMENTS SECTION */
-.achievements {
-  padding: 80px;
-}
 
-.achievements h2 {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 50px;
-  color: white;
-}
-
-/* GRID */
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-
-/* CARD */
-.achievement-card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 10px;
-  transition: 0.3s;
-  box-shadow: 10px 8px 0px rgb(191 219 254);
-}
-
-.achievement-card:hover {
-  transform: translateY(-6px);
-}
-
-/* IMAGE GROUP */
-.image-group {
-  display: flex;
-  height: 180px;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  gap: 3px;              /* ← small gap between images */
-}
-
-/* IMAGES */
-.image-group img {
-  flex: 1;
-  min-width: 0;          /* ← FIX: prevents flex children from overflowing */
-  object-fit: cover;
-  transition: flex 0.4s ease;   /* ← FIX: transition only flex, not all */
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-/* HERO EXPAND EFFECT */
-.image-group img:hover {
-  flex: 3;
-}
-
-/* DESCRIPTION */
-.achievement-card p {
-  font-size: 14px;
-  color: #cbd5f5;
-  line-height: 1.6;
-}
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .achievements-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-  .achievements { padding: 50px 24px; }
-  .achievements-grid { grid-template-columns: 1fr; }
-  .image-group { height: 150px; }
-}
 /* CONTACT SECTION */
 
 .contact-section{
@@ -1575,7 +1503,7 @@ html {
 
 @keyframes leadershipScroll {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-90%); }
 }
 
 .leadership-marquee-card {

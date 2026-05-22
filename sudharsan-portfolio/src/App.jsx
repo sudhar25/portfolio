@@ -409,8 +409,7 @@ function App() {
   <ul className={`nav-links ${menuOpen ? 'nav-open' : ''}`}>
     <li onClick={() => { document.getElementById('about').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>About Me</li>
     <li onClick={() => { document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Projects</li>
-    <li onClick={() => { document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Skills</li>
-    <li onClick={() => { document.getElementById('achievements').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Achievements</li>
+    <li onClick={() => { document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Skills</li> 
     <li onClick={() => { document.getElementById('publications').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Publications</li>
     <li onClick={() => { document.getElementById('experience').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Experience</li>
     <li onClick={() => { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Contact</li>
@@ -478,7 +477,7 @@ where I can keep growing, contribute meaningfully from day one, and work alongsi
 
   <div className="leadership-marquee-wrapper">
     <div className="leadership-marquee-track">
-
+    
       {[
         {
           tag: 'Ideathon',
@@ -570,11 +569,22 @@ where I can keep growing, contribute meaningfully from day one, and work alongsi
             'certificates/hackathon.jpg',
           ],
         },
+
+        {
+          tag: 'Pongal Vizha 26',
+          title: 'Cultural Event Organization',
+          desc: 'Participated in the organization of a cultural event, contributing to planning, coordination, and execution of various cultural programs.',
+          
+          images: [
+            'https://via.placeholder.com/300x160',
+            'certificates/hackathon.jpg',
+          ],
+        },
         
       ].map((item, i) => (
         <MarqueeCard key={i} item={item} />
       ))}
-
+    
     </div>
   </div>
 </section>
@@ -879,49 +889,7 @@ correction, helping improve language learning and spoken communication."
 
 
 
-<section id="achievements" className="achievements reveal from-left"> 
 
-<h2><WaveText text="Achievements" /></h2>
-
-<div className="achievements-grid">
-
-{/* CARD 1 */}
-<div className="achievement-card ">
-
-<div className="image-group">
-<img src="certificates/hackathon.jpg" />
-<img src="https://via.placeholder.com/300" />
-<img src="https://via.placeholder.com/300" />
-</div>
-
-<p>
-<b>2nd Runner</b> up in an ARVR hackathon Conducted by KJ Somaiya College Developed a 
-Interactive AR WEB application for a art gallery.
-</p>
-
-</div>
-
-
-{/* CARD 2 */}
-<div className="achievement-card ">
-
-<div className="image-group">
-<img src="certificates/Avishkar1.jpeg" />
-<img src="certificates/Avishkar2.png" />
-<img src="about/avishkar1.jpg"/>
-
-
-</div>
-
-<p>
-Presented research work at a technical event Organized by 
-<b>University of Mumbai</b> and Reached till Final round representing our college.
-</p>
-
-</div>
-</div>
-
-</section>
 
 
 <section id="contact" className="contact-section reveal">
@@ -953,7 +921,34 @@ Presented research work at a technical event Organized by
     </div>
   </a>
 
-  {/* Social Icons */}
+{/* ADDRESS / LOCATION */}
+<div className="contact-item">
+  <div className="contact-item-icon">📍</div>
+  <div className="contact-item-text">
+    <span className="contact-item-label">Location</span>
+    <span className="contact-item-value">Mumbai, Maharashtra, India</span>
+  </div>
+</div>
+
+{/* AVAILABILITY */}
+<div className="contact-item">
+  <div className="contact-item-icon">🟢</div>
+  <div className="contact-item-text">
+    <span className="contact-item-label">Status</span>
+    <span className="contact-item-value">Open to Work & Collaborations</span>
+  </div>
+</div>
+
+{/* COLLEGE */}
+<div className="contact-item">
+  <div className="contact-item-icon">🎓</div>
+  <div className="contact-item-text">
+    <span className="contact-item-label">Education</span>
+    <span className="contact-item-value">B.E. Computer Engineering</span>
+  </div>
+</div>
+
+{/* Social Icons */}
   <div className="social-icons">
     <a href="https://github.com/sudhar25" target="_blank" className="github"
        title="GitHub">
@@ -968,9 +963,9 @@ Presented research work at a technical event Organized by
       <i className="fab fa-instagram"></i>
     </a>
   </div>
-
-
 </div>
+
+
 
 <div className="feedback-card">
 
@@ -982,6 +977,9 @@ Presented research work at a technical event Organized by
       <span className="visitor-label">Portfolio Views</span>
     </div>
   </div>
+
+
+
 
   <div className="feedback-divider" />
 
