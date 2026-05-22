@@ -721,8 +721,10 @@ agricultural insurance assessment."
       skills={['PHP', 'SQL', 'Bootstrap', 'Razorpay API', 'MySQL Optimization', 'Responsive Design', 'Session Management',]}
       link="https://github.com/sudhar25/Chsmitra"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/chsmitra1.png',
+        '/project/chsmitra2.png',
+        '/project/chsmitra3.png',
+        '/project/chsmitra4.png',
       ]}
     />
 
@@ -743,8 +745,11 @@ feedback history.
       skills={['Python', 'SQL', 'Flask', 'Librosa', 'SpeechRecognition', 'NLP', 'Levenshtein Distance', 'Flutter', 'REST API', 'CORS']}
       link="https://github.com/sudhar25/AuraVoice"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/auravoice1.png',
+        '/project/auravoice2.png',
+        '/project/auravoice3.png',
+        '/project/auravoice4.png',
+        '/project/auravoice5.png',
       ]}
     />
 
@@ -764,8 +769,9 @@ subject. Built a fully responsive frontend using HTML, CSS, and Bootstrap to str
       skills={['PHP', 'MySQL', 'AWS Cognito', 'JavaScript', 'Bootstrap', 'Session Management', 'Database Optimization', 'Data Visualization']}
       link="https://github.com/sudhar25/Attendance-manager"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/attendence1.png',
+        '/project/attendence2.png',
+        '/project/attendence3.png',
       ]}
     />
 
@@ -785,8 +791,10 @@ across the integrated React–FastAPI architecture. "
       skills={['Python', 'SQL','NLP','React','FastAPI','Pydub', 'SpeechRecognition', 'Uvicorn']}
       link="https://github.com/sudhar25/Voice-based-learning-app"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/aathichudi1.png',
+        '/project/aathichudi2.png',
+        '/project/aathichudi3.png',
+        '/project/aathichudi4.png',
       ]}
     />
 
@@ -802,8 +810,8 @@ Used JSON-based FAQ dataset with cosine similarity to return relevant answers au
       skills={['Python', 'TensorFlow', 'SentenceTransformer', 'Json', 'FastAPI']}
       link="https://github.com/sudhar25/semantic_chatbot"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/chatbot1.png',
+        '/project/chatbot2.png',
       ]}
     />
 
@@ -841,8 +849,10 @@ across devices. "
       skills={['Flutter', 'Dart','Json', 'API handling']}
       link="https://github.com/sudhar25/Weather-app"
       images={[
-        'https://via.placeholder.com/600x220',
-        'https://via.placeholder.com/600x220',
+        '/project/air1.jpeg',
+        '/project/air2.jpeg',
+        '/project/air3.jpeg',
+        '/project/air4.jpeg',
       ]}
     />
   
@@ -864,7 +874,7 @@ Support"
       Proposed CropSure, a deep learning–based framework for crop damage assessment using satellite imagery and AI models to detect
 and estimate agricultural losses. The system analyzes environmental data to support faster damage evaluation and decision-making for
 farmers and insurance authorities."
-      link="#"
+      link="https://ieeexplore.ieee.org/document/11486078"
       images={[
         '/certificates/IEEE_paper.png',
         
@@ -876,7 +886,7 @@ farmers and insurance authorities."
       desc=" International Journal of Creative Research Thoughts (IJCRT).
       Developed AuraVoice, an application that uses speech recognition techniques to detect pronunciation errors and provide automatic
 correction, helping improve language learning and spoken communication."
-      link="#"
+      link="https://www.ijcrt.org/viewfull.php?&p_id=IJCRT2602543"
       images={[
         '/certificates/journal.png',
       ]}
