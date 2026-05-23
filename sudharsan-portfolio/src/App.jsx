@@ -383,14 +383,55 @@ function WaveText({ text }) {
     </span>
   )
 }
+
+
+function CursorGlow() {
+  useEffect(() => {
+    const el = document.querySelector('.cursor-glow')
+    if (!el) return
+    const move = (e) => {
+      el.style.left = e.clientX + 'px'
+      el.style.top  = e.clientY + 'px'
+    }
+    window.addEventListener('mousemove', move)
+    return () => window.removeEventListener('mousemove', move)
+  }, [])
+  return <div className="cursor-glow" />
+}
+
+function ScrollProgress() {
+  const [width, setWidth] = useState(0)
+  useEffect(() => {
+    const update = () => {
+      const scrolled  = window.scrollY
+      const total     = document.body.scrollHeight - window.innerHeight
+      setWidth((scrolled / total) * 100)
+    }
+    window.addEventListener('scroll', update)
+    return () => window.removeEventListener('scroll', update)
+  }, [])
+  return <div className="scroll-progress" style={{ width: `${width}%` }} />
+}
+
+
 function App() {
+
+  
   useScrollReveal() 
   const [menuOpen, setMenuOpen] = useState(false)
   const [formSent,  setFormSent]  = useState(false)
   return (
   
-    <div className="page">
 
+    <div className="page">
+      <CursorGlow />
+      <ScrollProgress />
+      <div className="floating-shapes">
+        <div className="shape shape-1" />
+        <div className="shape shape-2" />
+        <div className="shape shape-3" />
+        <div className="shape shape-4" />
+      </div>
       {/* NAVBAR */}
       {/* NAVBAR */}
 <nav className="navbar">
@@ -576,8 +617,9 @@ where I can keep growing, contribute meaningfully from day one, and work alongsi
           desc: 'Participated in the organization of a cultural event, contributing to planning, coordination, and execution of various cultural programs.',
           
           images: [
-            'https://via.placeholder.com/300x160',
-            'certificates/hackathon.jpg',
+            '/about/pongal1.jpeg',
+            '/about/pongal2.jpg',
+            '/about/pongal3.jpg',
           ],
         },
         
