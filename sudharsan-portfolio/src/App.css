@@ -16,9 +16,12 @@ body {
 
 html, body {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 /* NAVBAR */
 
@@ -27,15 +30,14 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 60px;
-  background: rgba(33, 45, 79, 0.97);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  padding: 18px 0px;
+  background: rgba(2, 19, 63, 0.97);
   border-bottom: 1px solid rgba(56, 189, 248, 0.12);
   position: sticky;
   top: 0;
   z-index: 999;           /* ← very high so nothing covers it */
   width: 100%;
+  height: 50px;
 }
 
 .logo{
@@ -47,7 +49,7 @@ html, body {
 .nav-links{
   display:flex;
   list-style:none;
-  gap:30px;
+  gap:50px;
   color:white;
 }
 
@@ -118,7 +120,7 @@ html, body {
   padding:30px;
   border-radius:20px;
   text-align:center;
-  width:500px;
+  width:550px;
   transition:0.3s;
   color:white;
 }
@@ -128,11 +130,10 @@ html, body {
 }
 
 .sidebar img{
-  width:350px;
-  height:450px;
-  border-radius:10%;
+  width:450px;
+  height:550px;
+  border-radius:5%;
   margin-bottom:20px;
-  border:4px solid #38bdf8;
 }
 
 /* CONTENT */
@@ -1302,7 +1303,7 @@ html {
 .carousel {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 220px;
   overflow: hidden;
 }
 
@@ -2031,8 +2032,8 @@ html {
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(56, 189, 248, 0.06) 0%,
-    transparent 70%
+    rgba(5, 174, 246, 0.06) 0%,
+    transparent 60%
   );
   pointer-events: none;
   z-index: 1;
@@ -2168,7 +2169,7 @@ section h2::after {
 
 /* ── 6. NAVBAR LOGO — gradient animation ── */
 .logo {
-  background: linear-gradient(120deg, #38bdf8, #a78bfa, #38bdf8);
+  background: linear-gradient(120deg, #38bdf8, #38bdf8);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2182,16 +2183,7 @@ section h2::after {
 }
 
 /* ── 7. SCROLL PROGRESS BAR ── */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #38bdf8, #a78bfa);
-  z-index: 9999;
-  transition: width 0.1s linear;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-}
+
 
 /* ── 8. SECTION entrance — scale up ── */
 .reveal {

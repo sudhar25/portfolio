@@ -399,19 +399,7 @@ function CursorGlow() {
   return <div className="cursor-glow" />
 }
 
-function ScrollProgress() {
-  const [width, setWidth] = useState(0)
-  useEffect(() => {
-    const update = () => {
-      const scrolled  = window.scrollY
-      const total     = document.body.scrollHeight - window.innerHeight
-      setWidth((scrolled / total) * 100)
-    }
-    window.addEventListener('scroll', update)
-    return () => window.removeEventListener('scroll', update)
-  }, [])
-  return <div className="scroll-progress" style={{ width: `${width}%` }} />
-}
+
 
 
 function App() {
@@ -425,7 +413,7 @@ function App() {
 
     <div className="page">
       <CursorGlow />
-      <ScrollProgress />
+      
       <div className="floating-shapes">
         <div className="shape shape-1" />
         <div className="shape shape-2" />
@@ -454,7 +442,7 @@ function App() {
     <li onClick={() => { document.getElementById('publications').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Publications</li>
     <li onClick={() => { document.getElementById('experience').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Experience</li>
     <li onClick={() => { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Contact</li>
-    <li onClick={() => { document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Blog</li>
+    {/* <li onClick={() => { document.getElementById('leadership').scrollIntoView({ behavior: 'smooth' }); setMenuOpen(false) }}>Blog</li> */}
   </ul>
 </nav>
  
@@ -463,7 +451,7 @@ function App() {
 
         {/* SIDEBAR */}
         <div className="sidebar">
-          <img src="/me.JPG" alt="profile"/>
+          <img src="/me2.jpg" alt="profile"/>
           <h3>Sudharsan Nadar - B.E. Computer Engineering</h3>
            <a href="/resume.pdf" target="_blank">
     <button className="resume-btn">View Resume</button>
@@ -543,12 +531,12 @@ where I can keep growing, contribute meaningfully from day one, and work alongsi
         },
         {
           tag: 'ELEVATE 2025',
-          title: 'Participated',
+          title: 'Competitive Internship Selection',
           desc: 'Participated in ELEVETE 2025 event where after clearing Aptitude, GD, Technical rounds got an Internship.',
           
           images: [
             'about/elevate.jpg',
-            'https://via.placeholder.com/300x160',
+            'certificates/elevate.jpeg',
           ],
         },
 
@@ -613,7 +601,7 @@ where I can keep growing, contribute meaningfully from day one, and work alongsi
 
         {
           tag: 'Pongal Vizha 26',
-          title: 'Cultural Event Organization',
+          title: 'Cultural Event',
           desc: 'Participated in the organization of a cultural event, contributing to planning, coordination, and execution of various cultural programs.',
           
           images: [
@@ -956,11 +944,11 @@ correction, helping improve language learning and spoken communication."
   <h3>Contact Me</h3>
 
   {/* Phone */}
-  <a href="tel:+91XXXXXXXXXX" className="contact-item">
+  <a href="tel:+919167767147" className="contact-item">
     <div className="contact-item-icon">📞</div>
     <div className="contact-item-text">
       <span className="contact-item-label">Phone</span>
-      <span className="contact-item-value">+91 XXXXX XXXXX</span>
+      <span className="contact-item-value">+91 9167767147</span>
     </div>
   </a>
 
