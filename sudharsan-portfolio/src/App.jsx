@@ -33,26 +33,20 @@ function VisitorCount() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    /* get existing count from localStorage */
-    const stored = parseInt(localStorage.getItem('portfolioViews') || '0')
-    /* increment on each visit */
-    const newCount = stored + 1
-    localStorage.setItem('portfolioViews', newCount)
-    /* animate count up */
-    let start = 0
-    const end = newCount
-    const duration = 1500
-    const step = Math.ceil(end / (duration / 16))
-    const timer = setInterval(() => {
-      start += step
-      if (start >= end) {
-        setCount(end)
-        clearInterval(timer)
-      } else {
-        setCount(start)
-      }
-    }, 16)
-    return () => clearInterval(timer)
+    /* hits a free counter API — increments once per visit */
+    fetch('https://api.countapi.xyz/hit/sudharsan-portfolio/visits')
+      .then(res => res.json())
+      .then(data => {
+        /* animate count up */
+        let start = 0
+        const end = data.value
+        const timer = setInterval(() => {
+          start += Math.ceil(end / 60)
+          if (start >= end) { setCount(end); clearInterval(timer) }
+          else setCount(start)
+        }, 16)
+      })
+      .catch(() => setCount(1))
   }, [])
 
   return <span>{count.toLocaleString()}</span>
