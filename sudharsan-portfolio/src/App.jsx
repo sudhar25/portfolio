@@ -4,27 +4,36 @@ import { useState, useEffect, useRef } from 'react'
 
 
 
-function ReadMore({ text, maxLines = 3 }) {
+function ReadMore({ lines, maxLines = 2 }) {
   const [expanded, setExpanded] = useState(false)
-  const lines = text.split('\n').map(l => l.trim()).filter(l => l !== '')
+
   const preview = lines.slice(0, maxLines)
-  const rest = lines.slice(maxLines)
+  const rest    = lines.slice(maxLines)
+
   return (
     <div className="readmore-wrapper">
       {preview.map((line, i) => (
-        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>{line}</p>
+        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
+          {line}
+        </p>
       ))}
       {expanded && rest.map((line, i) => (
-        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>{line}</p>
+        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
+          {line}
+        </p>
       ))}
       {rest.length > 0 && (
-        <button className="readmore-btn" onClick={(e) => { e.stopPropagation(); setExpanded(!expanded) }}>
+        <button
+          className="readmore-btn"
+          onClick={(e) => { e.stopPropagation(); setExpanded(!expanded) }}
+        >
           {expanded ? '▲ Read Less' : '▼ Read More'}
         </button>
       )}
     </div>
   )
 }
+
 
 function VisitorCount() {
   const [count, setCount] = useState(0)
@@ -288,7 +297,7 @@ function LeadershipCard({ tag, title, desc, skills, images, link }) {
         {tag && <span className="leadership-tag">{tag}</span>}
 
         <h3>{title}</h3>
-        <ReadMore text={desc} maxLines={1} />
+        <ReadMore lines={desc} maxLines={1} />
 
         {skills && skills.length > 0 && (
           <div className="leadership-skills">
@@ -710,11 +719,9 @@ where I can keep growing, contribute meaningfully from day one, and work alongsi
       tag="AIML Deep Learning"
       title=" Cropsure: A Deep Learning Framework for Crop Damage Assessment and Agricultural
 Insurance Support"
-      desc="Developed an intelligent system that uses satellite imagery (Sentinel-1, Sentinel-2, Landsat-8) and deep learning (NASNet + Vision
-Transformer) to detect crop damage and automate insurance claim verification. Implemented a TypeScript-based web platform with a
-Python backend that integrates Google Earth Engine for satellite data processing, NDVI/SAR feature extraction, disaster detection, and
-automated compensation estimation. The system enables farmers to submit claims digitally and supports scalable, data-driven
-agricultural insurance assessment."
+      desc={["Developed an intelligent system that uses satellite imagery (Sentinel-1, Sentinel-2, Landsat-8) and deep learning (NASNet + Vision Transformer) to detect crop damage and automate insurance claim verification.",
+"Implemented a TypeScript-based web platform with a Python backend that integrates Google Earth Engine for satellite data processing, NDVI/SAR feature extraction, disaster detection, and automated compensation estimation.",
+"The system enables farmers to submit claims digitally and supports scalable, data-driven agricultural insurance assessment."]}
       date=""
       attendees="Team of 4"
       skills={['Python', 'Deep Learning', 'Postgre SQL', 'Typscript', 'AIML', 'Data Processing', 'FinTech', 'NAS-Net', 'VIT']}
@@ -731,12 +738,11 @@ agricultural insurance assessment."
       tag="Web App"
       title="CHSMitra - Society Management Platform"
       
-      desc="•	Engineered a full-stack society management and maintenance billing platform, streamlining resident operations by automating 50–60% of manual workflows across billing, complaints, visitor approvals, and member records.
-•	Implemented secure billing logic with automated invoice generation and Razorpay payment integration, reducing payment delays and enabling real-time transaction verification with low-latency callbacks.
-•	Optimized MySQL queries and database schema, improving data retrieval speeds by ~35% and enhancing stability for multi-module access.
-•	Developed modular PHP backend components for CRUD operations, role-based access, and session-secured actions, increasing maintainability and reducing code redundancy.
-•	Designed responsive UI flows using HTML, CSS, Bootstrap, and JavaScript, improving user interaction smoothness and mobile compatibility.
-."
+      desc={["•	Engineered a full-stack society management and maintenance billing platform, streamlining resident operations by automating 50–60% of manual workflows across billing, complaints, visitor approvals, and member records.",
+"•	Implemented secure billing logic with automated invoice generation and Razorpay payment integration, reducing payment delays and enabling real-time transaction verification with low-latency callbacks.",
+"•	Optimized MySQL queries and database schema, improving data retrieval speeds by ~35% and enhancing stability for multi-module access.",
+"•	Developed modular PHP backend components for CRUD operations, role-based access, and session-secured actions, increasing maintainability and reducing code redundancy.",
+"•	Designed responsive UI flows using HTML, CSS, Bootstrap, and JavaScript, improving user interaction smoothness and mobile compatibility.",]}
       date=""
       attendees="Team of 3"
       skills={['PHP', 'SQL', 'Bootstrap', 'Razorpay API', 'MySQL Optimization', 'Responsive Design', 'Session Management',]}
@@ -752,15 +758,11 @@ agricultural insurance assessment."
     <LeadershipCard
       tag="AI"
       title="Aura Voice: Automatic Pronunciation Error Detector"
-      desc=" Developed an AI-based pronunciation evaluation system that analyzes user speech, compares it with correct phoneme patterns, and provides 
-real-time corrective feedback for English learning. 
- Implemented speech preprocessing and feature extraction using Librosa, SoundFile, NumPy, and SciPy, enabling accurate detection of pitch, 
-MFCCs, and acoustic deviations. Processed audio inputs with SpeechRecognition. 
- Used NLTK and Levenshtein distance algorithms to perform string similarity, phonetic comparison, and error scoring for mispronounced 
-words. 
- Built RESTful APIs with Flask 3.1, integrated CORS handling, and used Flask-SQLAlchemy for database operations and structured audio 
-feedback history. 
- Integrated with Flutter frontend, for audio upload, error visualization, and interactive pronunciation correction for learners."
+      desc={[" Developed an AI-based pronunciation evaluation system that analyzes user speech, compares it with correct phoneme patterns, and provides real-time corrective feedback for English learning.",
+" Implemented speech preprocessing and feature extraction using Librosa, SoundFile, NumPy, and SciPy, enabling accurate detection of pitch, MFCCs, and acoustic deviations. Processed audio inputs with SpeechRecognition.",
+" Used NLTK and Levenshtein distance algorithms to perform string similarity, phonetic comparison, and error scoring for mispronounced words.",
+" Built RESTful APIs with Flask 3.1, integrated CORS handling, and used Flask-SQLAlchemy for database operations and structured audio feedback history.", 
+" Integrated with Flutter frontend, for audio upload, error visualization, and interactive pronunciation correction for learners."]}
       date=""
       attendees="Team of 4"
       skills={['Python', 'SQL', 'Flask', 'Librosa', 'SpeechRecognition', 'NLP', 'Levenshtein Distance', 'Flutter', 'REST API', 'CORS']}
@@ -777,14 +779,11 @@ feedback history.
     <LeadershipCard
       tag="Web App with cloud implementation"
       title="Attendance Tracker using AWS Cloud & Cognito"
-      desc=" Developed backend logic using PHP to handle subject creation, attendance marking, percentage calculations, and validation flows with secure 
-session management. 
- Designed and structured the database using MySQL, implementing relational tables for users, subjects, and attendance records with optimized 
-queries for fast read/write operations. 
- Integrated AWS Cognito authentication, using hosted UI and token verification to enable secure login, protect routes, and maintain user-level 
-data isolation. 
- Implemented dynamic attendance dashboards using JavaScript to generate real-time percentage charts and progress summaries for each 
-subject. Built a fully responsive frontend using HTML, CSS, and Bootstrap to streamline user interaction."
+      desc={[" Developed backend logic using PHP to handle subject creation, attendance marking, percentage calculations, and validation flows with secure session management.",
+" Designed and structured the database using MySQL, implementing relational tables for users, subjects, and attendance records with optimized queries for fast read/write operations.",
+" Integrated AWS Cognito authentication, using hosted UI and token verification to enable secure login, protect routes, and maintain user-level data isolation. ",
+" Implemented dynamic attendance dashboards using JavaScript to generate real-time percentage charts and progress summaries for each subject.", 
+" Built a fully responsive frontend using HTML, CSS, and Bootstrap to streamline user interaction."]}
       date=""
       attendees="Solo Project"
       skills={['PHP', 'MySQL', 'AWS Cognito', 'JavaScript', 'Bootstrap', 'Session Management', 'Database Optimization', 'Data Visualization']}
@@ -799,14 +798,10 @@ subject. Built a fully responsive frontend using HTML, CSS, and Bootstrap to str
     <LeadershipCard
       tag="NLP Based"
       title="Aathichudi Tamil phrase learning application"
-      desc=" Developed a Python full-stack pronunciation learning platform enabling users to view Tamil phrases, listen to reference audio, record their 
-own pronunciation, and receive instant correctness feedback. 
- Built a full-stack pronunciation evaluation system with a React frontend (Web Audio API, Axios, modular components) and a 
-FastAPI backend supporting audio uploads, real-time scoring, and structured REST responses. 
- Implemented audio preprocessing and analysis pipelines using Pydub, ffmpeg-python, SpeechRecognition, and Levenshtein distance to 
-normalize audio, transcribe speech, and compute phonetic similarity. 
- Optimized backend performance with Uvicorn workers, enabling low-latency feedback and a seamless “correct / try again” learning flow 
-across the integrated React–FastAPI architecture. "
+      desc={[" Developed a Python full-stack pronunciation learning platform enabling users to view Tamil phrases, listen to reference audio, record their own pronunciation, and receive instant correctness feedback. ",
+" Built a full-stack pronunciation evaluation system with a React frontend (Web Audio API, Axios, modular components) and a FastAPI backend supporting audio uploads, real-time scoring, and structured REST responses. ",
+" Implemented audio preprocessing and analysis pipelines using Pydub, ffmpeg-python, SpeechRecognition, and Levenshtein distance to normalize audio, transcribe speech, and compute phonetic similarity.", 
+" Optimized backend performance with Uvicorn workers, enabling low-latency feedback and a seamless “correct / try again” learning flow across the integrated React–FastAPI architecture. "]}
       date=""
       attendees="Team of 3"
       skills={['Python', 'SQL','NLP','React','FastAPI','Pydub', 'SpeechRecognition', 'Uvicorn']}
@@ -822,10 +817,10 @@ across the integrated React–FastAPI architecture. "
     <LeadershipCard
       tag="AI Chatbot"
       title="College Admission FAQ Chatbot"
-      desc="Developed a Python Flask-based FAQ chatbot using SentenceTransformers for semantic similarity matching.
-Implemented spell correction, text preprocessing, and keyword fallback search to improve query accuracy.
-Used JSON-based FAQ dataset with cosine similarity to return relevant answers automatically.
- "
+      desc={["Developed a Python Flask-based FAQ chatbot using SentenceTransformers for semantic similarity matching.",
+"Implemented spell correction, text preprocessing, and keyword fallback search to improve query accuracy.",
+"Used JSON-based FAQ dataset with cosine similarity to return relevant answers automatically.",
+]}
       date=""
       attendees="Team of 2"
       skills={['Python', 'TensorFlow', 'SentenceTransformer', 'Json', 'FastAPI']}
@@ -839,10 +834,11 @@ Used JSON-based FAQ dataset with cosine similarity to return relevant answers au
     <LeadershipCard
       tag="Android Application"
       title="Farm Land Mapping Application"
-      desc="Built Flutter mobile app for real-time GPS-based farm boundary mapping with polygon area calculation
-Designed FastAPI REST backend with JWT authentication and geospatial farm data storage using PostGIS
-Integrated NeonDB (serverless PostgreSQL) as central database for multi-farmer data isolation
-Connected backend to NASNet/ViT ML model for satellite-based crop disaster detection using stored GPS coordinates"
+      desc={["Built Flutter mobile app for real-time GPS-based farm boundary mapping with polygon area calculation.",
+"Designed FastAPI REST backend with JWT authentication and geospatial farm data storage using PostGIS",
+"Integrated NeonDB (serverless PostgreSQL) as central database for multi-farmer data isolation",
+"Connected backend to NASNet/ViT ML model for satellite-based crop disaster detection using stored GPS coordinates"
+      ]}
       date=""
       attendees="Team of 4"
       skills={['PostgreSQL', 'Dart', 'Flutter', 'JWT Authentication', 'FastAPI', 'REST API']}
@@ -857,14 +853,10 @@ Connected backend to NASNet/ViT ML model for satellite-based crop disaster detec
     <LeadershipCard
       tag="Android application"
       title="Weather & Air Quality App"
-      desc=" Developed a cross-platform mobile application using Flutter, enabling users to fetch real-time weather data and AQI details based on GPS 
-coordinates or selected cities. 
- Integrated OpenWeatherMap APIs for temperature, humidity, pollution index, and particulate data, with robust JSON parsing and error
-handled network calls and trigger dynamic API requests for accurate environmental metrics. 
- Built a reactive UI using Flutter widgets, displaying AQI labels (Good, Moderate, Poor, etc.) with dynamic theme updates driven by air quality 
-and weather conditions a structured application logic in Dart with clean state management. 
- Optimized app performance with efficient API handling, caching strategies, and resource-aware widget rendering for smooth user experience 
-across devices. "
+      desc={[" Developed a cross-platform mobile application using Flutter, enabling users to fetch real-time weather data and AQI details based on GPS coordinates or selected cities.", 
+" Integrated OpenWeatherMap APIs for temperature, humidity, pollution index, and particulate data, with robust JSON parsing and error handled network calls and trigger dynamic API requests for accurate environmental metrics. ",
+" Built a reactive UI using Flutter widgets, displaying AQI labels (Good, Moderate, Poor, etc.) with dynamic theme updates driven by air quality and weather conditions a structured application logic in Dart with clean state management. ",
+" Optimized app performance with efficient API handling, caching strategies, and resource-aware widget rendering for smooth user experience across devices. "]}
       date=""
       attendees="Team of 3"
       skills={['Flutter', 'Dart','Json', 'API handling']}
