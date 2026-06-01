@@ -253,11 +253,16 @@ function LeadershipCard({ tag, title, desc, skills, images, link }) {
   const next = () =>
     setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
 
+  // ✅ FIX 1: Added cleanup function to prevent memory leaks
   useEffect(() => {
-  const timer = setInterval(() => {
-    setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
-  }, 3000)
-}, [images.length])
+    if (!images || images.length === 0) return;
+    
+    const timer = setInterval(() => {
+      setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+    }, 3000)
+    
+    return () => clearInterval(timer); 
+  }, [images]) // Track images instead of images.length
 
   return (
     <div className="leadership-card">
@@ -296,8 +301,12 @@ function LeadershipCard({ tag, title, desc, skills, images, link }) {
 
         {tag && <span className="leadership-tag">{tag}</span>}
 
-        <h3>{title}</h3>
-        <ReadMore lines={desc} maxLines={1} />
+        {title && <h3>{title}</h3>}
+
+        {/* ✅ FIX 2: Added safety check before rendering ReadMore */}
+        {desc && Array.isArray(desc) && (
+          <ReadMore lines={desc} maxLines={1} />
+        )}
 
         {skills && skills.length > 0 && (
           <div className="leadership-skills">
@@ -307,16 +316,23 @@ function LeadershipCard({ tag, title, desc, skills, images, link }) {
           </div>
         )}
 
-        <a href={link || '#'} target="_blank" rel="noreferrer">
-          <button className="leadership-view-btn">
-            View Details ↗
-          </button>
+        {/* ✅ FIX 3: Removed <button> from inside the <a> tag */}
+        <a 
+          href={link || '#'} 
+          target="_blank" 
+          rel="noreferrer"
+          className="leadership-view-btn"
+          style={{ display: 'inline-block', textDecoration: 'none' }}
+        >
+          View Details ↗
         </a>
 
       </div>
     </div>
   )
 }
+
+
 
 /* paste this hook at the top of App.jsx, outside the App function */
 function useScrollReveal() {
