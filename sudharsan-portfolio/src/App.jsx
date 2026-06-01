@@ -4,34 +4,45 @@ import { useState, useEffect, useRef } from 'react'
 
 
 
-function ReadMore({ lines, maxLines = 2 }) {
-  const [expanded, setExpanded] = useState(false)
+function ReadMore({ lines = [], maxLines = 2 }) {
+  const [expanded, setExpanded] = useState(false);
 
-  const preview = lines.slice(0, maxLines)
-  const rest    = lines.slice(maxLines)
+  // 1. SAFETY CHECK: If lines isn't an array, don't try to render it.
+  if (!Array.isArray(lines)) {
+    return null; 
+  }
+
+  const preview = lines.slice(0, maxLines);
+  const rest    = lines.slice(maxLines);
 
   return (
     <div className="readmore-wrapper">
       {preview.map((line, i) => (
-        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
+        <p key={`prev-${i}`} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
           {line}
         </p>
       ))}
+      
       {expanded && rest.map((line, i) => (
-        <p key={i} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
+        <p key={`rest-${i}`} className={line.startsWith('•') ? 'desc-bullet' : 'desc-text'}>
           {line}
         </p>
       ))}
+      
       {rest.length > 0 && (
         <button
           className="readmore-btn"
-          onClick={(e) => { e.stopPropagation(); setExpanded(!expanded) }}
+          onClick={(e) => { 
+            e.preventDefault(); // Prevents page jumps
+            e.stopPropagation(); 
+            setExpanded(!expanded);
+          }}
         >
           {expanded ? '▲ Read Less' : '▼ Read More'}
         </button>
       )}
     </div>
-  )
+  );
 }
 
 
