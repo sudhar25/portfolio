@@ -751,13 +751,32 @@ Insurance Support"
 "The system enables farmers to submit claims digitally and supports scalable, data-driven agricultural insurance assessment."]}
       date=""
       attendees="Team of 4"
-      skills={['Python', 'Deep Learning', 'Postgre SQL', 'Typscript', 'AIML', 'Data Processing', 'FinTech', 'NAS-Net', 'VIT']}
+      skills={['Python', 'Data Science', 'Data Analysis', 'Machine Learning', 'AIML', 'Data Processing', 'Pandas', 'Numpy', 'VIT']}
       link="https://github.com/arasu30/greenfield-shield"
       images={[
         '/project/cropsure.png',
         '/project/cropsure1.png',
         '/project/cropsure2.png',
         '/project/cropsure3.png',
+      ]}
+    />
+
+    <LeadershipCard
+      tag="AIML"
+      title=" IPL Live Match Win Probability Analytics Platform"
+      desc={[" Engineered an end-to-end analytics pipeline by integrating ball-by-ball and match-level IPL datasets, performing data cleaning, schema standardization, and feature engineering on 700K+ records. ",
+"• Conducted Exploratory Data Analysis (EDA) to identify key match outcome drivers and developed predictive features including Current Run Rate (CRR), Required Run Rate (RRR), wickets remaining, and toss-based contextual factors. ", 
+"• Developed and evaluated a Logistic Regression model for real-time win probability prediction, achieving 76.8% validation accuracy and 0.79 F1-score.  ",
+"• Built interactive analytics dashboards and probability visualizations using Streamlit, enabling live performance tracking, trend analysis, and match scenario exploration. Applied statistical analysis, predictive modeling, and model evaluation techniques to transform historical sports data into actionable insights for real-time decision-making."]}
+      date=""
+      attendees="solo project"
+      skills={['Python', 'Data Science', 'Data Analysis', 'Machine Learning', 'AIML', 'Data Processing', 'Pandas', 'Numpy', 'EDA', 'Logistic Regression', 'Model Evaluation', 'Streamlit','ETL']}
+      link="https://github.com/sudhar25/portfolio"
+      images={[
+        '/project/ipl1.png',
+        '/project/ipl2.png',
+        '/project/ipl3.png',
+        
       ]}
     />
 
